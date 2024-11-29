@@ -5,8 +5,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora Científica</title>
     <link rel="shortcut icon" href="src/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="src/script/style.css">
 </head>
 <body>
-    
+    <!-- Ícone de configuração -->
+    <ion-icon name="settings-sharp"></ion-icon>
+
+    <!-- Div responsável pela calculadora -->
+    <main id="calculadora">     
+        <!-- Visor -->
+        <p id="resultado">Resultado aqui!</p>
+
+        <!-- Div para números e operadores básicos -->
+        <article>
+            <!-- Adicionar DEL, AC e operadores de memória aqui -->
+            <!-- Operadores básicos -->
+            <table>
+                <tr>
+                   <td><button class="basico numero" title="Sete" onclick="">7</button></td>
+                   <td><button class="basico numero" title="Oito" onclick="">8</button></td>
+                   <td><button class="basico numero" title="Nove" onclick="">9</button></td>
+                   <td><button class="basico operador" title="Multiplicação" onclick="">X</button></td>
+                   <td><button class="basico operador" title="Adição" onclick="">+</button></td>
+                </tr>
+                <tr>
+                    <td><button class="basico numero" title="Quatro" onclick="">4</button></td>
+                    <td><button class="basico numero" title="Cinco" onclick="">5</button></td>
+                    <td><button class="basico numero" title="Seis" onclick="">6</button></td>
+                    <td><button class="basico operador" title="Divisão" onclick="">/</button></td>
+                    <td><button class="basico operador" title="Subtração" onclick="">-</button></td>
+                </tr>
+                <tr>
+                    <td><button class="basico numero" title="Um" onclick="">1</button></td>
+                    <td><button class="basico numero" title="Dois" onclick="">2</button></td>
+                    <td><button class="basico numero" title="Três" onclick="">3</button></td>
+                    <td><button class="basico operador" title="Raiz" onclick="">√</button></td>
+                    <td><button class="basico operador" title="Porcentagem" onclick="">%</button></td>
+                </tr>
+                <tr>
+                    <td><button class="basico numero" title="Ponto" onclick="">.</button></td>
+                    <td><button class="basico numero" title="Zero" onclick="">0</button></td>
+                    <td><button class="basico numero" title="Zero Zero" onclick="">00</button></td>
+                    <td colspan="2"><button class="basico operador igual" title="Igual" onclick="">=</button></td>
+                </tr>
+            </table>
+        </article>
+    </main>
+
+    <!-- Javascript - Ionicons -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <!-- Javascript -->
+    <script src="src/script/javascript.js"></script>
 </body>
 </html>
