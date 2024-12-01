@@ -28,9 +28,14 @@ $corFundoIgual: #F3C486
 body
     background-color: gray
 
+#configuracoes
+    position: fixed
+    top: 20px
+    right: 20px
+    cursor: pointer
 
-// Div responsável pela calculadora
 #calculadora
+    margin-top: 25px
     display: flex
     flex-direction: column
     justify-content: space-evenly
@@ -48,7 +53,7 @@ body
         border-collapse: collapse
         margin: 0 auto
 
-    // Configuração geral para todos os botões
+    // Configuração para todos os botões
     button
         border: none
         border-radius: 3px
@@ -78,7 +83,7 @@ body
         background-color: $corFundoIgual
 
 // Span do resultado - Visor
-#resultado
+#visor
     padding: 10px
     width: 90%
     border-radius: 5px
@@ -88,6 +93,7 @@ body
 
     // alinhado a esquerda
     .visor-insercao
+        height: 32px // Conforme tamanho do texto
         font: 2em digital 
 
     // alinhado a direita
@@ -95,3 +101,12 @@ body
         font: 2.2em digital
         font-weight: bold
         text-align: right
+        height: 34px // Conforme tamanho do texto
+
+#botoes-memoria
+    button
+        margin-bottom: 20px
+
+    button.apagar
+        color: $corIgual
+        background-color: $corFundoIgual
