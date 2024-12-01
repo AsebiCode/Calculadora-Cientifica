@@ -12,11 +12,18 @@
     src: url('../fonts/digital.ttf')
 
 // Cores
+$corCalculadora: #3d4147
+$corCalculadoraEscuro: #1a1b21
+
 $corVisor: #64b47c
 $corEscuroVisor: #096b3d
-$corBotao: #dad9c1
-$corSombraBotao: #818571
-$corConteudoBotao: #29292c
+$corBotao: #F2EBBF
+$corConteudoBotao: #a87240
+
+$corNumeros: #146665
+$corFundoNumeros: #8CBEB2
+$corIgual: #c44f47
+$corFundoIgual: #F3C486
 
 body
     background-color: gray
@@ -31,8 +38,10 @@ body
     position: absolute  
     left: 25% 
     height: 90vh
-    border: 2px solid red
+    border-radius: 15px
     width: 100vh
+    background-color: $corCalculadora
+    box-shadow: 0 10px 0 $corCalculadoraEscuro
 
     table
         width: 90vh 
@@ -52,14 +61,37 @@ body
         background-color: $corBotao
         color: $corConteudoBotao
         box-shadow: 0 4px 0
+        transition-duration: .2s
 
-    .igual
-        width: 97.5%  
+    // Animação do botão descendo
+    button:active
+        transform: translateY(2px)
+        box-shadow: 0 2px 0
 
-// Parágrafo do resultado - Visor
+    button.numero
+        color: $corNumeros
+        background-color: $corFundoNumeros
+
+    button.igual
+        width: 97.5%
+        color: $corIgual
+        background-color: $corFundoIgual
+
+// Span do resultado - Visor
 #resultado
+    padding: 10px
+    width: 90%
     border-radius: 5px
-    padding: 15px
-    font: 1.8em digital
     color: $corEscuroVisor
     background-color: $corVisor
+    box-shadow: 0 5px 0 $corEscuroVisor
+
+    // alinhado a esquerda
+    .visor-insercao
+        font: 2em digital 
+
+    // alinhado a direita
+    .visor-resultado
+        font: 2.2em digital
+        font-weight: bold
+        text-align: right

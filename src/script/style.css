@@ -24,8 +24,10 @@ body {
   position: absolute;
   left: 25%;
   height: 90vh;
-  border: 2px solid red;
+  border-radius: 15px;
   width: 100vh;
+  background-color: #3d4147;
+  box-shadow: 0 10px 0 #1a1b21;
 }
 #calculadora table {
   width: 90vh;
@@ -40,19 +42,39 @@ body {
   height: 100%;
   width: 95%;
   font: 1.2em pixel;
-  border-color: #dad9c1;
-  background-color: #dad9c1;
-  color: #29292c;
+  border-color: #F2EBBF;
+  background-color: #F2EBBF;
+  color: #a87240;
   box-shadow: 0 4px 0;
+  transition-duration: 0.2s;
 }
-#calculadora .igual {
+#calculadora button:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0;
+}
+#calculadora button.numero {
+  color: #146665;
+  background-color: #8CBEB2;
+}
+#calculadora button.igual {
   width: 97.5%;
+  color: #c44f47;
+  background-color: #F3C486;
 }
 
 #resultado {
+  padding: 10px;
+  width: 90%;
   border-radius: 5px;
-  padding: 15px;
-  font: 1.8em digital;
   color: #096b3d;
   background-color: #64b47c;
+  box-shadow: 0 5px 0 #096b3d;
+}
+#resultado .visor-insercao {
+  font: 2em digital;
+}
+#resultado .visor-resultado {
+  font: 2.2em digital;
+  font-weight: bold;
+  text-align: right;
 }/*# sourceMappingURL=style.css.map */
