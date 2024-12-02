@@ -78,11 +78,11 @@ body {
   background-color: #64b47c;
   box-shadow: 0 5px 0 #096b3d;
 }
-#visor .visor-insercao {
+#visor #visor-insercao {
   height: 32px;
   font: 2em digital;
 }
-#visor .visor-resultado {
+#visor #visor-resultado {
   font: 2.2em digital;
   font-weight: bold;
   text-align: right;
