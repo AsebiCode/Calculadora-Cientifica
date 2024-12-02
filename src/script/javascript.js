@@ -15,13 +15,23 @@ function apagarDigito() {
     visorInsercao().innerHTML = textoAtual.slice(0, -1);
 }
 
+function normalizarExpressoes(expressao) {
+    expressao = expressao.replace(/x/g, '*');
+    expressao = expressao.replace(/%/g, '/100*');
+    expressao = expressao.replace(/√(\d+)/g, 'Math.sqrt($1)');
+    return expressao;
+}
+
 function calcular() {
-    var expressao = visorInsercao().innerHTML;
+    let expressao = visorInsercao().innerHTML;
 
     if (expressao) {
         try {
+            expressao = normalizarExpressoes(expressao);
             let resultado = eval(expressao);
+
             visorResultado().innerHTML = resultado;
+            RespostaGuardada = resultado;
             visorInsercao().innerHTML = "";
         } catch (e) {
             visorResultado().innerHTML = "Erro"; 
