@@ -24,14 +24,14 @@ body {
 }
 
 #calculadora {
-  margin-top: 25px;
+  margin-top: 15vh;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
   position: absolute;
   left: 25%;
-  height: 90vh;
+  height: 70vh;
   border-radius: 15px;
   width: 100vh;
   background-color: #3d4147;
@@ -82,10 +82,16 @@ body {
   height: 32px;
   font: 2em digital;
 }
+#visor .visorinferior {
+  display: flex;
+  justify-content: space-between;
+}
 #visor #visor-resultado {
+  text-align: right;
+}
+#visor #visor-resultado, #visor #visor-memoria {
   font: 2.2em digital;
   font-weight: bold;
-  text-align: right;
   height: 34px;
 }
 

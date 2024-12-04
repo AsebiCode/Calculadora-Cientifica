@@ -14,19 +14,24 @@
     <!-- Div responsável pela calculadora -->
     <main id="calculadora">     
         <!-- Visor -->
-        <span id="visor">
+        <div id="visor">
             <p id="visor-insercao"></p>
-            <p id="visor-resultado">0</p>
-        </span>
+
+            <div class="visorinferior">
+                <p id="visor-memoria" style="color: #64b47c;">M</p>
+                <p id="visor-resultado">0</p>
+            </div>
+        </div>
 
         <!-- Div para números e operadores básicos -->
         <article>
             <!-- Operadores de memória e delete -->
             <table id="botoes-memoria">
                 <tr>
-                    <td><button title="" onclick="apagarExpressao()">MRC</button></td>
-                    <td><button title="" onclick="apagarExpressao()">M+</button></td>
-                    <td><button title="" onclick="apagarExpressao()">M-</button></td>
+                    <td><button title="Limpar Memória" onclick="ApagarMemoria()">MC</button></td>
+                    <td><button title="Recuperar Memória" onclick="RecuperarMemoria()">MR</button></td>
+                    <td><button title="Adicionar Memória" onclick="AdicionarMemoria()">M+</button></td>
+                    <td><button title="Subtrair Memória" onclick="SubtrairMemoria()">M-</button></td>
                     <td><button class="apagar" title="Apagar expressão" onclick="apagarResultadoDigito()">AC</button></td>
                     <td><button class="apagar" title="Apagar um dígito" onclick="apagarDigito()">Del</button></td>
                 </tr>

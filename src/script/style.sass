@@ -35,14 +35,14 @@ body
     cursor: pointer
 
 #calculadora
-    margin-top: 25px
+    margin-top: 15vh
     display: flex
     flex-direction: column
     justify-content: space-evenly
     align-items: center
     position: absolute  
     left: 25% 
-    height: 90vh
+    height: 70vh
     border-radius: 15px
     width: 100vh
     background-color: $corCalculadora
@@ -94,14 +94,22 @@ body
     // alinhado a esquerda
     #visor-insercao
         height: 32px // Conforme tamanho do texto
-        font: 2em digital 
+        font: 2em digital
+
+    // Memória e Resultado
+    .visorinferior
+        display: flex
+        justify-content: space-between
 
     // alinhado a direita
     #visor-resultado
+        text-align: right
+
+    #visor-resultado, #visor-memoria
         font: 2.2em digital
         font-weight: bold
-        text-align: right
         height: 34px // Conforme tamanho do texto
+
 
 #botoes-memoria
     button
