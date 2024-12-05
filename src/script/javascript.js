@@ -5,6 +5,8 @@ let Memoria = 0;
 
 function inserirValores(valor) {
     visorInsercao().innerHTML += valor;
+    RemoverPontoInicial();
+    RemoverZeroDuploInicial();
 }
 
 function apagarResultadoDigito() {
@@ -22,6 +24,24 @@ function normalizarExpressoes(expressao) {
     expressao = expressao.replace(/%/g, '/100*');
     expressao = expressao.replace(/√(\d+)/g, 'Math.sqrt($1)');
     return expressao;
+}
+
+function RemoverPontoInicial() {
+    const conteudoVisor = visorInsercao().innerText;
+
+    if (conteudoVisor.startsWith(".")) {
+        visorInsercao().innerText = "";
+        console.log("Não é permitido . no início da operação.");
+    }
+}
+
+function RemoverZeroDuploInicial() {
+    const conteudoVisor = visorInsercao().innerText;
+
+    if (/^0\d/.test(conteudoVisor)) {
+        visorInsercao().innerText = conteudoVisor.replace(/^0+/, "0");
+        console.log("Não é permitido mais de um zero à esquerda.");
+      }
 }
 
 function calcular() {
