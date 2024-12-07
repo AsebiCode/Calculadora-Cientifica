@@ -65,7 +65,7 @@ function LogMemoria() {return console.log(`Memória armazenada: ${Memoria}`);}
 
 function AtualizarIndicadorMemoria() {
     const indicador = document.getElementById("visor-memoria");
-    if (indicador !== 0) {
+    if (Memoria !== 0) {
         indicador.style.color = "#096b3d";
     } else {
         indicador.style.color = "#64b47c";
