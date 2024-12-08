@@ -9,6 +9,10 @@ function inserirValores(valor) {
     RemoverZeroDuploInicial();
 }
 
+function inserirRespostaAnterior() {
+    visorInsercao().innerHTML += RespostaGuardada;
+}
+
 function apagarResultadoDigito() {
     visorInsercao().innerHTML = ""; 
     visorResultado().innerHTML = "0";
@@ -20,10 +24,16 @@ function apagarDigito() {
 }
 
 function normalizarExpressoes(expressao) {
-    expressao = expressao.replace(/x/g, '*');
-    expressao = expressao.replace(/%/g, '/100*');
-    expressao = expressao.replace(/√(\d+)/g, 'Math.sqrt($1)');
-    return expressao;
+    const substituicoes = [
+        {regex: /³√\s*(\d+)/g, to: 'Math.cbrt($1)'},
+        {regex: /√\s*(\d+)/g, to: 'Math.sqrt($1)'},
+        {regex: /x/g, to: '*'},
+        {regex: /%/g, to: '/100*'},
+        {regex: /rest/g, to: '%'}
+    ];
+
+    console.log("Expressão normalizada: ", expressao);
+    return substituicoes.reduce((acc, { regex, to }) => acc.replace(regex, to), expressao);
 }
 
 function RemoverPontoInicial() {
@@ -59,6 +69,7 @@ function calcular() {
             visorResultado().innerHTML = "Erro"; 
         }
     }
+    return RespostaGuardada;
 }
 
 function LogMemoria() {return console.log(`Memória armazenada: ${Memoria}`);}
