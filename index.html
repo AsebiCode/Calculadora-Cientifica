@@ -37,7 +37,7 @@
                 </tr>
             </table>
             <!-- Operadores básicos -->
-            <table>
+            <table id="botoes-basico">
                 <tr>
                    <td><button class="basico numero" title="Sete" onclick="inserirValores('7')">7</button></td>
                    <td><button class="basico numero" title="Oito" onclick="inserirValores('8')">8</button></td>
@@ -56,14 +56,28 @@
                     <td><button class="basico numero" title="Um" onclick="inserirValores('1')">1</button></td>
                     <td><button class="basico numero" title="Dois" onclick="inserirValores('2')">2</button></td>
                     <td><button class="basico numero" title="Três" onclick="inserirValores('3')">3</button></td>
-                    <td><button class="basico operador" title="Raiz" onclick="inserirValores(' √')">√</button></td>
-                    <td><button class="basico operador" title="Porcentagem" onclick="inserirValores(' % ')">%</button></td>
+                    <td><button class="basico operador" title="Parenteses Esquerdo" onclick="inserirValores(' &#40;')">&#40;</button></td>
+                    <td><button class="basico operador" title="Parenteses Direito" onclick="inserirValores(' &#41;')">&#41;</button></td>
                 </tr>
                 <tr>
                     <td><button class="basico numero" title="Ponto" onclick="inserirValores('.')">.</button></td>
                     <td><button class="basico numero" title="Zero" onclick="inserirValores('0')">0</button></td>
                     <td><button class="basico numero" title="Zero Zero" onclick="inserirValores('00')">00</button></td>
                     <td colspan="2"><button class="basico operador igual" title="Igual" onclick="calcular()">=</button></td>
+                </tr>
+            </table>
+        </article>
+
+        <!-- Div para outros operadores -->
+        <article>
+            <table id="botoes-avancado">
+                <tr>
+                    <td><button class="avancado" title="Resposta da Operação" onclick="">Ans</button></td>
+                    <td><button class="avancado" title="Resto da Divisão" onclick="">Rest</button></td>
+                    <td><button class="avancado" title="Porcentagem" onclick="inserirValores(' % ')">%</td>
+                    <td><button class="avancado" title="Raiz Quadrada" onclick="inserirValores(' √')">√</button></td>
+                    <td><button class="avancado" title="Raiz Cúbica" onclick="">³√</button></td>
+                    <td><button class="avancado" title="Raiz Enésima" onclick="">ⁿ√</button></td>
                 </tr>
             </table>
         </article>

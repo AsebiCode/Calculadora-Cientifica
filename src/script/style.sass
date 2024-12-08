@@ -35,14 +35,14 @@ body
     cursor: pointer
 
 #calculadora
-    margin-top: 15vh
+    margin-top: 5vh
     display: flex
     flex-direction: column
     justify-content: space-evenly
     align-items: center
     position: absolute  
     left: 25% 
-    height: 70vh
+    height: 90vh
     border-radius: 15px
     width: 100vh
     background-color: $corCalculadora
@@ -53,12 +53,18 @@ body
         border-collapse: collapse
         margin: 0 auto
 
+    table#botoes-basico td
+        width: 20% // 5 botões -> 100 / 5
+
+    table#botoes-memoria td, table#botoes-avancado td
+        width: 16.66% // 6 botões -> 100 / 6
+
     // Configuração para todos os botões
     button
         border: none
         border-radius: 3px
         margin: 0 0px 6px 0px 
-        padding: 10px 15px 
+        padding: 10px
         height: 100%
         width: 95%
         font: 1.2em pixel
