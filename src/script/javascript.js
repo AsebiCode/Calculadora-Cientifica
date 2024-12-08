@@ -25,6 +25,7 @@ function apagarDigito() {
 
 function normalizarExpressoes(expressao) {
     const substituicoes = [
+        {regex: /(\d+)ⁿ√\s*(\d+)/g, to: 'Math.pow($2, 1/$1)'},
         {regex: /³√\s*(\d+)/g, to: 'Math.cbrt($1)'},
         {regex: /√\s*(\d+)/g, to: 'Math.sqrt($1)'},
         {regex: /x/g, to: '*'},
