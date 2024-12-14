@@ -25,16 +25,30 @@ function apagarDigito() {
 
 function normalizarExpressoes(expressao) {
     const substituicoes = [
-        {regex: /(\d+)ⁿ√\s*(\d+)/g, to: 'Math.pow($2, 1/$1)'},
-        {regex: /³√\s*(\d+)/g, to: 'Math.cbrt($1)'},
-        {regex: /√\s*(\d+)/g, to: 'Math.sqrt($1)'},
-        {regex: /x/g, to: '*'},
-        {regex: /%/g, to: '/100*'},
-        {regex: /rest/g, to: '%'}
+        {regex: /(\d+)²/g, to: 'Math.pow($1, 2)'}, // potência ao quadrado
+        {regex: /(\d+)³/g, to: 'Math.pow($1, 3)'}, // potência ao cubo
+        {regex: /(\d+)⁻¹/g, to: 'Math.pow($1, -1)'}, // inverso multiplicativo
+        {regex: /(\d+)!/g, to: 'fatorial($1)'}, // fatorial
+        {regex: /(\d+)ⁿ(\d+)/g, to: 'Math.pow($1, $2)' }, // potência genérica
+        {regex: /(\d+)⁻ⁿ(\d+)/g, to: 'Math.pow($1, -$2)' }, // potência genérica negativa
+        {regex: /(\d+)ⁿ√\s*(\d+)/g, to: 'Math.pow($2, 1/$1)'}, // raiz enésima
+        {regex: /³√\s*(\d+)/g, to: 'Math.cbrt($1)'}, // raiz cúbica
+        {regex: /√\s*(\d+)/g, to: 'Math.sqrt($1)'}, // raiz quaquada
+        {regex: /x/g, to: '*'}, // multiplicação
+        {regex: /%/g, to: '/100*'}, // porcentagem
+        {regex: /rest/g, to: '%'} // resto da divisão
     ];
 
     console.log("Expressão normalizada: ", expressao);
     return substituicoes.reduce((acc, { regex, to }) => acc.replace(regex, to), expressao);
+}
+
+function fatorial(numero) {
+    let resultado = 1;
+    for (let i = numero; i > 0; i--) {
+        resultado *= i;
+    }
+    return resultado;
 }
 
 function RemoverPontoInicial() {
