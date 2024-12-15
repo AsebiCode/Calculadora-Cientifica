@@ -25,18 +25,21 @@ function apagarDigito() {
 
 function normalizarExpressoes(expressao) {
     const substituicoes = [
+        {regex: /x/g, to: '*'}, // multiplicação
+        {regex: /rest/g, to: '%'}, // resto da divisão
+        {regex: /%/g, to: '/100*'}, // porcentagem
+        {regex: /√\s*(\d+)/g, to: 'Math.sqrt($1)'}, // raiz quaquada
+        {regex: /³√\s*(\d+)/g, to: 'Math.cbrt($1)'}, // raiz cúbica
+        {regex: /(\d+)ⁿ√\s*(\d+)/g, to: 'Math.pow($2, 1/$1)'}, // raiz enésima
         {regex: /(\d+)²/g, to: 'Math.pow($1, 2)'}, // potência ao quadrado
         {regex: /(\d+)³/g, to: 'Math.pow($1, 3)'}, // potência ao cubo
+        {regex: /(\d+)ⁿ(\d+)/g, to: 'Math.pow($1, $2)'}, // potência genérica
         {regex: /(\d+)⁻¹/g, to: 'Math.pow($1, -1)'}, // inverso multiplicativo
+        {regex: /(\d+)⁻ⁿ(\d+)/g, to: 'Math.pow($1, -$2)'}, // potência genérica negativa
         {regex: /(\d+)!/g, to: 'fatorial($1)'}, // fatorial
-        {regex: /(\d+)ⁿ(\d+)/g, to: 'Math.pow($1, $2)' }, // potência genérica
-        {regex: /(\d+)⁻ⁿ(\d+)/g, to: 'Math.pow($1, -$2)' }, // potência genérica negativa
-        {regex: /(\d+)ⁿ√\s*(\d+)/g, to: 'Math.pow($2, 1/$1)'}, // raiz enésima
-        {regex: /³√\s*(\d+)/g, to: 'Math.cbrt($1)'}, // raiz cúbica
-        {regex: /√\s*(\d+)/g, to: 'Math.sqrt($1)'}, // raiz quaquada
-        {regex: /x/g, to: '*'}, // multiplicação
-        {regex: /%/g, to: '/100*'}, // porcentagem
-        {regex: /rest/g, to: '%'} // resto da divisão
+        {regex: /(\d+)%\?(\d+)/g, to: '($1 * $2 / 100)'}, // descobrir porcentagem
+        {regex: /log\((\d+),\s*(\d+)\)/g, to: '(Math.log($2) / Math.log($1))'}, // logaritmo comum
+        {regex: /ln\((\d+)\)/g, to: 'Math.log($1)'} // logaritmo natural
     ];
 
     console.log("Expressão normalizada: ", expressao);

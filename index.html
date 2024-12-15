@@ -20,11 +20,11 @@
 
             <div class="visorinferior">
                 <p id="visor-memoria" style="color: #64b47c;">M</p>
-                <p id="visor-resultado">0</p>
+            <p id="visor-resultado">0</p>
             </div>
         </div>
 
-        <!-- Operadores de Memória e Delete -->
+        <!-- Operadores de Memória e elete -->
         <article>
             <table id="botoes-memoria">
                 <tr>
@@ -59,7 +59,7 @@
                     <td><button class="basico numero" title="Dois" onclick="inserirValores('2')">2</button></td>
                     <td><button class="basico numero" title="Três" onclick="inserirValores('3')">3</button></td>
                     <td><button class="basico operador" title="Parenteses Esquerdo" onclick="inserirValores(' &#40;')">&#40;</button></td>
-                    <td><button class="basico operador" title="Parenteses Direito" onclick="inserirValores(' &#41;')">&#41;</button></td>
+                    <td><button class="basico operador" title="Parenteses Direito" onclick="inserirValores('&#41; ')">&#41;</button></td>
                 </tr>
                 <tr>
                     <td><button class="basico numero" title="Ponto" onclick="inserirValores('.')">.</button></td>
@@ -89,6 +89,22 @@
                     <td><button class="avancado" title="Potência Genérica Negativa" onclick="inserirValores('⁻ⁿ')">x⁻ⁿ</button></td>
                     <td><button class="avancado" title="Fatorial" onclick="inserirValores('!')">x!</button></td>
                 </tr>
+                <tr>
+                    <td><button class="avancado" title="Descobrir Porcentagem" onclick="inserirValores('%?')">%?</button></td>
+                    <td><button class="avancado" title="Logaritmo Comum" onclick="inserirValores('log(')">log</button></td>
+                    <td><button class="avancado" title="Logaritmo Natural" onclick="inserirValores('ln(10)')">ln</button></td>
+                    <td><button class="avancado" title="Logaritmo Binário" onclick="inserirValores('lb(')">lb</button></td>
+                    <td><button class="avancado" title="Antilogaritmo Natural" onclick="">eˣ</button></td>
+                    <td><button class="avancado" title="Antilogaritmo Comum" onclick="">10ˣ</button></td>
+                </tr>
+                <!-- <tr>
+                    <td><button class="avancado" title="" onclick=""></button></td>
+                    <td><button class="avancado" title="" onclick=""></button></td>
+                    <td><button class="avancado" title="" onclick=""></button></td>
+                    <td><button class="avancado" title="" onclick=""></button></td>
+                    <td><button class="avancado" title="" onclick=""></button></td>
+                    <td><button class="avancado" title="" onclick=""></button></td>
+                </tr> -->
             </table>
         </article>
     </main>
