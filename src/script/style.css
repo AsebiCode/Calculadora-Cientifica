@@ -33,12 +33,15 @@ body {
   left: 25%;
   height: 90vh;
   border-radius: 15px;
-  width: 100vh;
+  width: 50%;
   background-color: #3d4147;
   box-shadow: 0 10px 0 #1a1b21;
 }
+#calculadora article {
+  width: 100%;
+}
 #calculadora table {
-  width: 90vh;
+  width: 90%;
   border-collapse: collapse;
   margin: 0 auto;
 }

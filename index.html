@@ -6,6 +6,7 @@
     <title>Calculadora Científica</title>
     <link rel="shortcut icon" href="src/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="src/script/style.css">
+    <link rel="stylesheet" href="src/script/responsivo.css">
 </head>
 <body>
     <!-- Ícone de configuração -->
@@ -23,9 +24,8 @@
             </div>
         </div>
 
-        <!-- Div para números e operadores básicos -->
+        <!-- Operadores de Memória e Delete -->
         <article>
-            <!-- Operadores de memória e delete -->
             <table id="botoes-memoria">
                 <tr>
                     <td><button title="Limpar Memória" onclick="ApagarMemoria()">MC</button></td>
@@ -36,7 +36,9 @@
                     <td><button class="apagar" title="Apagar um dígito" onclick="apagarDigito()">Del</button></td>
                 </tr>
             </table>
-            <!-- Operadores básicos -->
+        </article>
+        <!-- Operadores Básicos -->
+        <article>
             <table id="botoes-basico">
                 <tr>
                    <td><button class="basico numero" title="Sete" onclick="inserirValores('7')">7</button></td>
@@ -80,12 +82,12 @@
                     <td><button class="avancado" title="Raiz Enésima" onclick="inserirValores('ⁿ√')">ⁿ√</button></td>
                 </tr>
                 <tr>
-                    <td><button class="avancado" title="" onclick="inserirValores('²')">x²</button></td>
-                    <td><button class="avancado" title="" onclick="inserirValores('³')">x³</button></td>
-                    <td><button class="avancado" title="" onclick="inserirValores('ⁿ')">xⁿ</button></td>
-                    <td><button class="avancado" title="" onclick="inserirValores('⁻¹')">x⁻¹</button></td>
-                    <td><button class="avancado" title="" onclick="inserirValores('⁻ⁿ')">x⁻ⁿ</button></td>
-                    <td><button class="avancado" title="" onclick="inserirValores('!')">x!</button></td>
+                    <td><button class="avancado" title="Potência ao Quadrado" onclick="inserirValores('²')">x²</button></td>
+                    <td><button class="avancado" title="Potência ao Cubo" onclick="inserirValores('³')">x³</button></td>
+                    <td><button class="avancado" title="Potência Genérica" onclick="inserirValores('ⁿ')">xⁿ</button></td>
+                    <td><button class="avancado" title="Inverso Multiplicativo" onclick="inserirValores('⁻¹')">x⁻¹</button></td>
+                    <td><button class="avancado" title="Potência Genérica Negativa" onclick="inserirValores('⁻ⁿ')">x⁻ⁿ</button></td>
+                    <td><button class="avancado" title="Fatorial" onclick="inserirValores('!')">x!</button></td>
                 </tr>
             </table>
         </article>
