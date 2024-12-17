@@ -64,8 +64,8 @@ function normalizarExpressoes(expressao) {
         {regex: /(-?\d+(\.\d+)?)⁻¹/g, to: 'Math.pow($1, -1)'},
         // Fatorial (x!)
         {regex: /(-?\d+(\.\d+)?)!/g, to: 'fatorial($1)'},
-        // Logaritmo comum (log base x -> log(y)/log(x))
-        {regex: /log\((-?\d+(\.\d+)?),\s*(-?\d+(\.\d+)?)\)/g, to: '(Math.log($2) / Math.log($1))'},
+        // Logaritmo de Base 10
+        {regex: /log\((-?\d+(\.\d+)?)\)/g, to: 'Math.log10($1)'},
         // Logaritmo natural (ln(x))
         {regex: /ln\((-?\d+(\.\d+)?)\)/g, to: 'Math.log($1)'},
         // Logaritmo binário (lb(x) -> log base 2)
