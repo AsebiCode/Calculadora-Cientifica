@@ -167,7 +167,7 @@ function SubtrairMemoria() {
 }
 
 function RecuperarMemoria() {
-    visorResultado().innerHTML = Memoria;
+    visorInsercao().innerHTML = Memoria;
     AtualizarIndicadorMemoria();
     LogMemoria();
 }
