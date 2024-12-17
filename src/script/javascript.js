@@ -1,12 +1,20 @@
 function visorInsercao() {return document.getElementById("visor-insercao")}
 function visorResultado() {return document.getElementById("visor-resultado")}
 
-let Memoria = 0;
-
 function inserirValores(valor) {
     visorInsercao().innerHTML += valor;
     RemoverPontoInicial();
     RemoverZeroDuploInicial();
+
+    if (/\.\./.test(visorInsercao().innerText)) {
+        console.log("Não é permitido inserir dois pontos consecutivos.");
+        apagarDigito();
+    }
+
+    if (ChecarSinaisDuplos()) {
+        console.log("Não é possível inserir sinais duplicados.");
+        apagarSinalDuplo();
+    }
 }
 
 function inserirRespostaAnterior() {
@@ -21,6 +29,11 @@ function apagarResultadoDigito() {
 function apagarDigito() {
     var textoAtual = visorInsercao().innerHTML;
     visorInsercao().innerHTML = textoAtual.slice(0, -1);
+}
+
+function apagarSinalDuplo() {
+    var textoAtual = visorInsercao().innerHTML;
+    visorInsercao().innerHTML = textoAtual.slice(0, -3);
 }
 
 function normalizarExpressoes(expressao) {
@@ -122,7 +135,21 @@ function RemoverZeroDuploInicial() {
     if (/^0\d/.test(conteudoVisor)) {
         visorInsercao().innerText = conteudoVisor.replace(/^0+/, "0");
         console.log("Não é permitido mais de um zero à esquerda.");
-      }
+    }
+}
+
+const SinaisDuplos = [/\+\+/, /--/, /\/\//, /x\s*x/];
+
+function ChecarSinaisDuplos() {
+    const conteudoVisor = visorInsercao().innerText;
+
+    for (let regex of SinaisDuplos) {
+        regex.lastIndex = 0;
+        if (regex.test(conteudoVisor)) {
+            return true;
+        }
+    }
+    return false;
 }
 
 function calcular() {
@@ -142,6 +169,8 @@ function calcular() {
     }
     return RespostaGuardada;
 }
+
+let Memoria = 0;
 
 function LogMemoria() {return console.log(`Memória armazenada: ${Memoria}`);}
 
