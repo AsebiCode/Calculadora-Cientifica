@@ -18,12 +18,12 @@ body {
 
 #configuracoes {
   position: relative;
-  left: 43%;
+  left: 42%;
   cursor: pointer;
 }
 
 #calculadora {
-  margin-top: 5vh;
+  margin-top: 2vh;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;

@@ -64,16 +64,18 @@ function normalizarExpressoes(expressao) {
         {regex: /(-?\d+(\.\d+)?)⁻¹/g, to: 'Math.pow($1, -1)'},
         // Fatorial (x!)
         {regex: /(-?\d+(\.\d+)?)!/g, to: 'fatorial($1)'},
-        // Logaritmo de Base 10
-        {regex: /log10\((-?\d+(\.\d+)?)\)/g, to: 'Math.log10($1)'},
         // Logaritmo natural (ln(x))
         {regex: /ln\((-?\d+(\.\d+)?)\)/g, to: 'Math.log($1)'},
         // Logaritmo binário (lb(x) -> log base 2)
         {regex: /lb\((-?\d+(\.\d+)?)\)/g, to: '(Math.log($1) / Math.log(2))'},
+        // Logaritmo Comum
+        {regex: /log\(\s*(-?\d+(\.\d+)?),\s*(-?\d+(\.\d+)?)\s*\)/g, to: '($1 > 0 && $1 !== 1 && $3 > 0 ? Math.log($3) / Math.log($1) : NaN)'},
         // Antilogaritmo natural (eˣ)
         {regex: /e\^\s*(-?\d+(\.\d+)?)/g, to: 'Math.exp($1)'},
         // Antilogaritmo comum (10ˣ)
-        {regex: /10\^\s*(-?\d+(\.\d+)?)/g, to: 'Math.pow(10, $1)'}
+        {regex: /10\^\s*(-?\d+(\.\d+)?)/g, to: 'Math.pow(10, $1)'},
+        // Logaritmo de Base 10
+        {regex: /log10\((-?\d+(\.\d+)?)\)/g, to: 'Math.log10($1)'},
     ];
 
     console.log("Expressão normalizada: ", expressao);
@@ -196,7 +198,7 @@ function SubtrairMemoria() {
 }
 
 function RecuperarMemoria() {
-    visorInsercao().innerHTML = Memoria;
+    visorInsercao().innerHTML += Memoria;
     AtualizarIndicadorMemoria();
     LogMemoria();
 }
