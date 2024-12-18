@@ -17,9 +17,8 @@ body {
 }
 
 #configuracoes {
-  position: fixed;
-  top: 20px;
-  right: 20px;
+  position: relative;
+  left: 43%;
   cursor: pointer;
 }
 

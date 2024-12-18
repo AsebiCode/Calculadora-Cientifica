@@ -9,11 +9,13 @@
     <link rel="stylesheet" href="src/script/responsivo.css">
 </head>
 <body>
-    <!-- Ícone de configuração -->
-    <ion-icon id="configuracoes" name="settings-sharp" style="color: white;" size="large"></ion-icon>
-
     <!-- Div responsável pela calculadora -->
-    <main id="calculadora">     
+    <main id="calculadora">   
+        <!-- Ícone de configuração -->
+        <div id="configuracoes">
+            <ion-icon name="settings-sharp" style="color: gray;" size="large"></ion-icon>
+        </div>
+  
         <!-- Visor -->
         <div id="visor">
             <p id="visor-insercao"></p>
@@ -90,7 +92,7 @@
                     <td><button class="avancado" title="Fatorial" onclick="inserirValores('!')">x!</button></td>
                 </tr>
                 <tr>
-                    <td><button class="avancado" title="Logaritmo de Base 10" onclick="inserirValores('log(')">log</button></td>
+                    <td><button class="avancado" title="Logaritmo de Base 10" onclick="inserirValores('log10(')">log10</button></td>
                     <td><button class="avancado" title="Logaritmo" onclick="inserirValores('log(')">logₓn</button></td>
                     <td><button class="avancado" title="Logaritmo Natural" onclick="inserirValores('ln(')">ln</button></td>
                     <td><button class="avancado" title="Logaritmo Binário" onclick="inserirValores('lb(')">lb</button></td>
