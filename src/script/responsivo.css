@@ -6,4 +6,7 @@
     border-radius: 0;
     left: 0;
   }
+  #calculadora button {
+    font-size: 1em;
+  }
 }/*# sourceMappingURL=responsivo.css.map */

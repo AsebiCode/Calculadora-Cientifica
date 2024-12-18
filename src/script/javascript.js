@@ -65,7 +65,7 @@ function normalizarExpressoes(expressao) {
         // Fatorial (x!)
         {regex: /(-?\d+(\.\d+)?)!/g, to: 'fatorial($1)'},
         // Logaritmo de Base 10
-        {regex: /log\((-?\d+(\.\d+)?)\)/g, to: 'Math.log10($1)'},
+        {regex: /log10\((-?\d+(\.\d+)?)\)/g, to: 'Math.log10($1)'},
         // Logaritmo natural (ln(x))
         {regex: /ln\((-?\d+(\.\d+)?)\)/g, to: 'Math.log($1)'},
         // Logaritmo binário (lb(x) -> log base 2)
