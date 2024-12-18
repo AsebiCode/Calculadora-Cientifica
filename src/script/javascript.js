@@ -76,6 +76,18 @@ function normalizarExpressoes(expressao) {
         {regex: /10\^\s*(-?\d+(\.\d+)?)/g, to: 'Math.pow(10, $1)'},
         // Logaritmo de Base 10
         {regex: /log10\((-?\d+(\.\d+)?)\)/g, to: 'Math.log10($1)'},
+        // Seno
+        {regex: /sin\((-?\d+(\.\d+)?)\)/g, to: 'Math.sin($1)'},
+        // Cosseno
+        {regex: /cos\((-?\d+(\.\d+)?)\)/g, to: 'Math.cos($1)'},
+        // Tangente
+        {regex: /tan\((-?\d+(\.\d+)?)\)/g, to: 'Math.tan($1)'},
+        // Cotangente
+        {regex: /cot\((-?\d+(\.\d+)?)\)/g, to: '(1 / Math.tan($1))'},
+        // Secante
+        {regex: /sec\((-?\d+(\.\d+)?)\)/g, to: '(1 / Math.cos($1))'},
+        // Cossecante
+        {regex: /csc\((-?\d+(\.\d+)?)\)/g, to: '(1 / Math.sin($1))'},
     ];
 
     console.log("Expressão normalizada: ", expressao);
