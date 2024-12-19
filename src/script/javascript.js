@@ -6,7 +6,7 @@ function inserirValores(valor) {
     RemoverPontoInicial();
     RemoverZeroDuploInicial();
 
-    if (/\.\./.test(visorInsercao().innerText)) {
+    if ((/\.\./.test(visorInsercao().innerText))||(/\,\,/.test(visorInsercao().innerText))) {
         console.log("Não é permitido inserir dois pontos consecutivos.");
         apagarDigito();
     }
@@ -152,7 +152,7 @@ function RemoverZeroDuploInicial() {
     }
 }
 
-const SinaisDuplos = [/\+\+/, /--/, /\/\//, /x\s*x/];
+const SinaisDuplos = [/\+ \+/, /- -/, /\/ \//, /x x/, /% %/, ];
 
 function ChecarSinaisDuplos() {
     const conteudoVisor = visorInsercao().innerText;
