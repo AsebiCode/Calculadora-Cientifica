@@ -16,7 +16,7 @@ body {
   background-color: gray;
 }
 
-#configuracoes {
+#icon-config {
   position: relative;
   left: 42%;
   cursor: pointer;
@@ -35,6 +35,7 @@ body {
   width: 50%;
   background-color: #3d4147;
   box-shadow: 0 10px 0 #1a1b21;
+  /* Mostra a tooltip e a seta quando em hover */
 }
 #calculadora article {
   margin-top: 20px;
@@ -52,10 +53,12 @@ body {
   width: 16.66%;
 }
 #calculadora button {
+  position: relative;
   border: none;
   border-radius: 3px;
-  margin: 0 0px 8px 0px;
+  margin-top: 8px;
   padding: 10px;
+  height: 100%;
   width: 95%;
   font: 1.2em pixel;
   border-color: #F2EBBF;
@@ -63,6 +66,42 @@ body {
   color: #a87240;
   box-shadow: 0 4px 0;
   transition-duration: 0.2s;
+}
+#calculadora button[data-tooltip]::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  visibility: hidden;
+  text-align: center;
+  padding: 5px;
+  bottom: 125%;
+  left: 50%;
+  opacity: 0;
+  transition: opacity 0.3s;
+  background-color: #fff;
+  color: #3d4147;
+  border-radius: 4px;
+  font-size: 0.7em;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  z-index: 1;
+}
+#calculadora button[data-tooltip]::before {
+  content: "";
+  position: absolute;
+  visibility: hidden;
+  bottom: 80%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 10px;
+  border-style: solid;
+  border-color: #fff transparent transparent transparent;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+#calculadora button[data-tooltip]:hover::after,
+#calculadora button[data-tooltip]:hover::before {
+  visibility: visible;
+  opacity: 1;
 }
 #calculadora button:active {
   transform: translateY(2px);

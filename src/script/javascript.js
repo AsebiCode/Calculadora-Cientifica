@@ -52,16 +52,16 @@ function normalizarExpressoes(expressao) {
         {regex: /³√\s*(-?\d+(\.\d+)?)/g, to: 'Math.cbrt($1)'},
         // Raiz quadrada (√x)
         {regex: /√\s*(-?\d+(\.\d+)?)/g, to: 'Math.sqrt($1)'},
-        // Potência genérica (xⁿ)
-        {regex: /(-?\d+(\.\d+)?)ⁿ(-?\d+(\.\d+)?)/g, to: 'Math.pow($1, $3)'},
+        // Potência genérica (x^)
+        {regex: /(-?\d+(\.\d+)?)\^(-?\d+(\.\d+)?)/g, to: 'Math.pow($1, $3)'},
         // Potência ao quadrado (x²)
         {regex: /(-?\d+(\.\d+)?)²/g, to: 'Math.pow($1, 2)'},
         // Potência ao cubo (x³)
         {regex: /(-?\d+(\.\d+)?)³/g, to: 'Math.pow($1, 3)'},
-        // Potência com expoente negativo (x⁻ⁿ)
-        {regex: /(-?\d+(\.\d+)?)⁻ⁿ(-?\d+(\.\d+)?)/g, to: 'Math.pow($1, -($3))'},
-        // Inverso multiplicativo (x⁻¹)
-        {regex: /(-?\d+(\.\d+)?)⁻¹/g, to: 'Math.pow($1, -1)'},
+        // Potência com expoente negativo (x^-n)
+        {regex: /(-?\d+(\.\d+)?)\^-(-?\d+(\.\d+)?)/g, to: 'Math.pow($1, -($3))'},
+        // Inverso multiplicativo (x^-1)
+        {regex: /(-?\d+(\.\d+)?)\^-1/g, to: 'Math.pow($1, -1)'},
         // Fatorial (x!)
         {regex: /(-?\d+(\.\d+)?)!/g, to: 'fatorial($1)'},
         // Logaritmo natural (ln(x))
@@ -152,7 +152,7 @@ function RemoverZeroDuploInicial() {
     }
 }
 
-const SinaisDuplos = [/\+ \+/, /- -/, /\/ \//, /x x/, /% %/, ];
+const SinaisDuplos = [/\+ \+/, /- -/, /\/ \//, /x x/, /% %/];
 
 function ChecarSinaisDuplos() {
     const conteudoVisor = visorInsercao().innerText;

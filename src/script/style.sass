@@ -28,7 +28,7 @@ $corFundoIgual: #F3C486
 body
     background-color: gray
 
-#configuracoes
+#icon-config
     position: relative
     left: 42%
     cursor: pointer
@@ -64,11 +64,12 @@ body
 
     // Configuração para todos os botões
     button
+        position: relative
         border: none
         border-radius: 3px
-        margin: 0 0px 8px 0px
+        margin-top: 8px 
         padding: 10px
-        // height: 100%
+        height: 100%
         width: 95%
         font: 1.2em pixel
         border-color: $corBotao
@@ -76,6 +77,48 @@ body
         color: $corConteudoBotao
         box-shadow: 0 4px 0
         transition-duration: .2s
+
+    // Tooltip
+    button[data-tooltip]::after 
+        content: attr(data-tooltip)
+        position: absolute
+        visibility: hidden
+        text-align: center
+        padding: 5px
+        bottom: 125%
+        left: 50%
+        opacity: 0
+        transition: opacity 0.3s
+        background-color: #fff
+        color: $corCalculadora
+        border-radius: 4px
+        font-size: 0.7em
+        transform: translateX(-50%)
+        white-space: nowrap
+        z-index: 1
+    
+
+    // Seta da Tooltip
+    button[data-tooltip]::before 
+        content: ""
+        position: absolute
+        visibility: hidden
+        bottom: 80%
+        left: 50%
+        transform: translateX(-50%)
+        border-width: 10px
+        border-style: solid
+        border-color: #fff transparent transparent transparent 
+        opacity: 0
+        transition: opacity 0.3s
+    
+
+    /* Mostra a tooltip e a seta quando em hover */
+    button[data-tooltip]:hover::after,
+    button[data-tooltip]:hover::before 
+        visibility: visible
+        opacity: 1
+    
 
     // Animação do botão descendo
     button:active
