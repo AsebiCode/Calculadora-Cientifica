@@ -7,13 +7,19 @@ function inserirValores(valor) {
     RemoverZeroDuploInicial();
 
     if ((/\.\./.test(visorInsercao().innerText))||(/\,\,/.test(visorInsercao().innerText))) {
-        console.log("Não é permitido inserir dois pontos consecutivos.");
+        exibirAviso("Não é permitido inserir dois pontos consecutivos.");
         apagarDigito();
     }
 
     if (ChecarSinaisDuplos()) {
-        console.log("Não é possível inserir sinais duplicados.");
+        exibirAviso("Não é possível inserir sinais duplicados.");
         apagarSinalDuplo();
+    }
+}
+
+function tratandoNaN() {
+    if (visorResultado().innerHTML === "NaN") {
+        visorResultado().innerHTML = "Undefined";
     }
 }
 
@@ -139,7 +145,7 @@ function RemoverPontoInicial() {
 
     if (conteudoVisor.startsWith(".")) {
         visorInsercao().innerText = "";
-        console.log("Não é permitido . no início da operação.");
+        exibirAviso("Não é permitido . no início da operação.");
     }
 }
 
@@ -148,7 +154,7 @@ function RemoverZeroDuploInicial() {
 
     if (/^0\d/.test(conteudoVisor)) {
         visorInsercao().innerText = conteudoVisor.replace(/^0+/, "0");
-        console.log("Não é permitido mais de um zero à esquerda.");
+        exibirAviso("Não é permitido mais de um zero à esquerda.");
     }
 }
 
@@ -177,6 +183,7 @@ function calcular() {
             visorResultado().innerHTML = resultado;
             RespostaGuardada = resultado;
             visorInsercao().innerHTML = "";
+            tratandoNaN();
         } catch (e) {
             visorResultado().innerHTML = "Erro"; 
         }
@@ -219,4 +226,20 @@ function ApagarMemoria() {
     Memoria = 0;
     AtualizarIndicadorMemoria();
     LogMemoria();
+}
+
+function exibirAviso(mensagem) {
+    const divAvisos = document.getElementById("avisos");
+    const paragrafoAviso = document.getElementById("paragrafo-aviso");
+
+    divAvisos.style.opacity = "1";
+    divAvisos.style.color = "#fff";
+    paragrafoAviso.innerText = mensagem;
+
+    setTimeout(() => {
+        divAvisos.style.opacity = "0";
+        setTimeout(() => {
+            paragrafoAviso.innerText = "aviso";
+        }, 500); 
+    }, 2000);
 }
