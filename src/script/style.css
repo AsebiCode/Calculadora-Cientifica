@@ -16,6 +16,12 @@ body {
   background-color: gray;
 }
 
+#avisos {
+  font: 0.8em pixel;
+  color: #fff;
+  text-align: center;
+}
+
 #icon-config {
   position: relative;
   left: 42%;
@@ -35,10 +41,9 @@ body {
   width: 50%;
   background-color: #3d4147;
   box-shadow: 0 10px 0 #1a1b21;
-  /* Mostra a tooltip e a seta quando em hover */
 }
-#calculadora article {
-  margin-top: 20px;
+#calculadora section {
+  margin-top: 10px;
   width: 100%;
 }
 #calculadora table {
@@ -82,7 +87,7 @@ body {
   border-radius: 4px;
   font-size: 0.7em;
   transform: translateX(-50%);
-  white-space: nowrap;
+  white-space: pre-wrap;
   z-index: 1;
 }
 #calculadora button[data-tooltip]::before {

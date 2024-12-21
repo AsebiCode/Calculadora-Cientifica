@@ -28,6 +28,11 @@ $corFundoIgual: #F3C486
 body
     background-color: gray
 
+#avisos
+    font: 0.8em pixel
+    color: #fff
+    text-align: center
+
 #icon-config
     position: relative
     left: 42%
@@ -47,8 +52,8 @@ body
     background-color: $corCalculadora
     box-shadow: 0 10px 0 $corCalculadoraEscuro
 
-    article
-        margin-top: 20px
+    section
+        margin-top: 10px
         width: 100%
 
     table
@@ -94,7 +99,7 @@ body
         border-radius: 4px
         font-size: 0.7em
         transform: translateX(-50%)
-        white-space: nowrap
+        white-space: pre-wrap
         z-index: 1
     
 
@@ -113,12 +118,10 @@ body
         transition: opacity 0.3s
     
 
-    /* Mostra a tooltip e a seta quando em hover */
     button[data-tooltip]:hover::after,
     button[data-tooltip]:hover::before 
         visibility: visible
-        opacity: 1
-    
+        opacity: 1 
 
     // Animação do botão descendo
     button:active

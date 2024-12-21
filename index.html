@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="src/script/responsivo.css">
 </head>
 <body>
-    <!-- Div responsável pela calculadora -->
     <main id="calculadora">   
         <!-- Ícone de configuração -->
         <div id="icon-config">
@@ -26,8 +25,13 @@
             </div>
         </div>
 
-        <!-- Operadores de Memória e elete -->
-        <article>
+        <!-- Avisos -->
+        <section id="avisos">
+            <p>Console.log('Avisos vão estar aqui!');</p>
+        </section>
+
+        <!-- Operadores de Memória e delete -->
+        <section>
             <table id="botoes-memoria">
                 <tr>
                     <td><button data-tooltip="Limpar Memória" onclick="ApagarMemoria()">MC</button></td>
@@ -38,9 +42,10 @@
                     <td><button class="apagar" data-tooltip="Apagar um dígito" onclick="apagarDigito()">Del</button></td>
                 </tr>
             </table>
-        </article>
+        </section>
+
         <!-- Operadores Básicos -->
-        <article>
+        <section>
             <table id="botoes-basico">
                 <tr>
                    <td><button class="basico numero" data-tooltip="Sete" onclick="inserirValores('7')">7</button></td>
@@ -70,10 +75,10 @@
                     <td colspan="2"><button class="basico operador igual" data-tooltip="Igual" onclick="calcular()">=</button></td>
                 </tr>
             </table>
-        </article>
+        </section>
 
         <!-- Div para outros operadores -->
-        <article>
+        <section>
             <table id="botoes-avancado">
                 <tr>
                     <td><button class="avancado" data-tooltip="Resposta da Operação" onclick="inserirRespostaAnterior()">a</button></td>
@@ -116,7 +121,7 @@
                     <td><button class="avancado" data-tooltip="" onclick=""></button></td>
                 </tr> -->
             </table>
-        </article>
+        </section>
     </main>
 
     <!-- Javascript - Ionicons -->
