@@ -1,0 +1,81 @@
+:root {
+    --cor-calculadora: #f9afbb;
+    --cor-calculadora-escuro: #cc102d;
+
+    --cor-visor: #fadce3;
+    --cor-escuro-visor: #f58092;
+
+    --cor-icons: #fadce3;
+    --cor-botao: #f58092;
+    --cor-fundo-botao: #fadce3;
+    --cor-numeros: #d1566c;
+    --cor-fundo-numeros: #f78da4;
+    --cor-destaque: #bf344d;
+    --cor-fundo-destaque: #fa7390;
+}
+
+body.tema-rosa {
+    --cor-calculadora: #3d4147;
+    --cor-visor: #64b47c;
+
+    --cor-visor: #64b47c;
+    --cor-escuro-visor: #096b3d;
+
+    --cor-icons: gray;
+    --cor-botao: #a87240;
+    --cor-fundo-botao: #F2EBBF;
+    --cor-numeros: #146665;
+    --cor-fundo-numeros: #8CBEB2;
+    --cor-destaque: #c44f47;
+    --cor-fundo-destaque: #F3C486;
+}
+
+#calculadora {
+    background-color: var(--cor-calculadora);
+}
+
+#calculadora .icons,
+#calculadora .icons a {
+    color: var(--cor-icons);
+}
+
+#calculadora button {
+    border-color: var(--cor-fundo-botao);
+    background-color: var(--cor-fundo-botao);
+    color: var(--cor-botao);
+}
+
+#calculadora button[data-tooltip]::after {
+    background-color: #333;
+    color: #fff;
+}
+
+#calculadora button.numero {
+    color: #146665;
+    background-color: #8CBEB2;
+}
+
+#calculadora button.numero {
+    color: var(--cor-numeros);
+    background-color: var(--cor-fundo-numeros);
+}
+
+#calculadora button.igual {
+    color: var(--cor-destaque);
+    background-color: var(--cor-fundo-destaque);
+}
+
+#visor {
+    color: var(--cor-escuro-visor);
+    background-color: var(--cor-visor);
+    box-shadow: 0 5px 0 var(--cor-escuro-visor);
+}
+
+#visor #visor-memoria {
+    color: var(--cor-visor);
+}
+
+#botoes-memoria button.apagar {
+    color: var(--cor-destaque);
+    background-color: var(--cor-fundo-destaque);
+}

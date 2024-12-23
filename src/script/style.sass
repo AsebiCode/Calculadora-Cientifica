@@ -15,6 +15,7 @@
 $corCalculadora: #3d4147
 $corCalculadoraEscuro: #1a1b21
 
+$corIcon: gray
 $corVisor: #64b47c
 $corEscuroVisor: #096b3d
 $corBotao: #F2EBBF
@@ -61,13 +62,23 @@ body
     box-shadow: 0 10px 0 $corCalculadoraEscuro
 
     .icons
+        display: flex
+        justify-content: right
         width: 95%
-        text-align: right
-        color: gray
+        color: $corIcon
 
         ion-icon
             margin: 10px 10px 10px 0
             cursor: pointer
+
+        a
+            color: $corIcon
+
+        #mudar-tema
+            margin-right: 15px
+            width: auto
+            height: 30px
+            font-size: 0.7em
 
     #avisos
         margin-top: 20px
@@ -199,11 +210,13 @@ body
     #visor-resultado
         text-align: right
 
+    #visor-memoria
+        color: $corVisor
+
     #visor-resultado, #visor-memoria
         font: 2.2em digital
         font-weight: bold
         height: 34px // Conforme tamanho do texto
-
 
 #botoes-memoria
     button.apagar

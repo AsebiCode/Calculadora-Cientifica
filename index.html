@@ -6,9 +6,10 @@
     <title>Calculadora Científica</title>
     <link rel="shortcut icon" href="src/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="src/script/style.css">
+    <link rel="stylesheet" href="src/script/temas.css">
     <link rel="stylesheet" href="src/script/responsivo.css">
 </head>
-<body>
+<body class="tema-rosa">
     <article id="configuracoes">
         <h1>Configurações</h1>
     </article>
@@ -16,6 +17,7 @@
     <main id="calculadora">   
         <!-- Icons de Histórico e Configurações -->
         <div class="icons">
+            <button id="mudar-tema">Tema</button>
             <ion-icon name="document-text-outline" size="large"></ion-icon>
             <ion-icon name="settings-sharp" size="large"></ion-icon>
         </div>
@@ -25,7 +27,7 @@
             <p id="visor-insercao"></p>
 
             <div class="visorinferior">
-                <p id="visor-memoria" style="color: #64b47c;">M</p>
+                <p id="visor-memoria">M</p>
             <p id="visor-resultado">0</p>
             </div>
         </div>
@@ -129,20 +131,20 @@
         </section>
 
         <footer class="icons">
-            <a href="https://github.com/Ayanami016/Calculadora-Cientifica" target="_blank" style="color: gray;">
+            <a href="https://github.com/Ayanami016/Calculadora-Cientifica" target="_blank">
                 <ion-icon name="logo-github" size="large"></ion-icon>
             </a>
         </footer>
     </main>
 
-    <!-- Javascript - Ionicons -->
+    <!--Ionicons -->
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
     <!-- Math.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.11.0/math.min.js"></script>
 
-    <!-- Javascript -->
+    <!-- Script -->
     <script src="src/script/javascript.js"></script>
 </body>
 </html>

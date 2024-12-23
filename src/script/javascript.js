@@ -244,3 +244,7 @@ function exibirAviso(mensagem) {
         }, 500); 
     }, 2000);
 }
+
+document.getElementById("mudar-tema").addEventListener("click", () => {
+    document.body.classList.toggle("tema-rosa");
+});

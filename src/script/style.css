@@ -50,13 +50,23 @@ body {
   box-shadow: 0 10px 0 #1a1b21;
 }
 #calculadora .icons {
+  display: flex;
+  justify-content: right;
   width: 95%;
-  text-align: right;
   color: gray;
 }
 #calculadora .icons ion-icon {
   margin: 10px 10px 10px 0;
   cursor: pointer;
+}
+#calculadora .icons a {
+  color: gray;
+}
+#calculadora .icons #mudar-tema {
+  margin-right: 15px;
+  width: auto;
+  height: 30px;
+  font-size: 0.7em;
 }
 #calculadora #avisos {
   margin-top: 20px;
@@ -178,6 +188,9 @@ body {
 }
 #visor #visor-resultado {
   text-align: right;
+}
+#visor #visor-memoria {
+  color: #64b47c;
 }
 #visor #visor-resultado, #visor #visor-memoria {
   font: 2.2em digital;
