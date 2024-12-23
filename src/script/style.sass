@@ -28,20 +28,23 @@ $corFundoIgual: #F3C486
 body
     background-color: gray
 
-#avisos
-    font: 0.8em pixel
+#configuracoes
+    display: none
+    margin-top: 2vh
+    position: absolute
+    left: 35%
+    top: 5%
+    padding: 20px
+    width: 30%
+    height: 90%
+    background-color: rgba(0, 0, 0, 0.5)
+    border-radius: 20px
     text-align: center
-    opacity: 0
-    transition: opacity 0.5s ease-in-out
+    z-index: 2
 
-.icons
-    width: 95%
-    text-align: right
-    color: gray
-
-    ion-icon
-        margin: 10px 10px 10px 0
-        cursor: pointer
+    h1
+        font: 1.4em pixel
+        color: #fff
 
 #calculadora
     margin-top: 2vh
@@ -56,6 +59,22 @@ body
     width: 50%
     background-color: $corCalculadora
     box-shadow: 0 10px 0 $corCalculadoraEscuro
+
+    .icons
+        width: 95%
+        text-align: right
+        color: gray
+
+        ion-icon
+            margin: 10px 10px 10px 0
+            cursor: pointer
+
+    #avisos
+        margin-top: 20px
+        font: 0.8em pixel
+        text-align: center
+        opacity: 0
+        transition: opacity 0.5s ease-in-out
 
     section
         margin-top: 10px
@@ -72,7 +91,6 @@ body
     table#botoes-memoria td, table#botoes-avancado td
         width: 16.66% // 6 botões -> 100 / 6
 
-    // Configuração para todos os botões
     button
         position: relative
         border: none
@@ -88,45 +106,61 @@ body
         box-shadow: 0 4px 0
         transition-duration: .2s
 
-    // Tooltip
-    button[data-tooltip]::after 
-        content: attr(data-tooltip)
-        position: absolute
-        visibility: hidden
-        text-align: center
-        padding: 5px
-        bottom: 125%
-        left: 50%
-        opacity: 0
-        transition: opacity 0.3s
-        background-color: #fff
-        color: $corCalculadora
-        border-radius: 4px
-        font-size: 0.7em
-        transform: translateX(-50%)
-        white-space: pre-wrap
-        z-index: 1
-    
+    // Tooltip - Direita
+    button[data-tooltip]
+        &::after
+            content: attr(data-tooltip)
+            visibility: hidden
+            background-color: #333
+            color: #fff
+            text-align: center
+            padding: 5px
+            border-radius: 4px
+            position: absolute
+            left: 110%
+            top: 50%
+            transform: translateY(-50%)
+            opacity: 0
+            transition: opacity 0.3s
+            white-space: nowrap
+            z-index: 1
+            font-size: 12px
+            pointer-events: none
 
-    // Seta da Tooltip
-    button[data-tooltip]::before 
-        content: ""
-        position: absolute
-        visibility: hidden
-        bottom: 80%
-        left: 50%
-        transform: translateX(-50%)
-        border-width: 10px
-        border-style: solid
-        border-color: #fff transparent transparent transparent 
-        opacity: 0
-        transition: opacity 0.3s
-    
+        &::before
+            content: ""
+            visibility: hidden
+            position: absolute
+            left: 100%
+            top: 50%
+            transform: translateY(-50%)
+            border-width: 10px
+            border-style: solid
+            border-color: transparent transparent transparent #333
+            opacity: 0
+            transition: opacity 0.3s
+            z-index: 1
 
+    // Tooltip - Esquerda
+    button.tooltip-esquerda[data-tooltip]
+        &::after
+            left: auto
+            right: 110%
+
+        &::before
+            left: auto
+            right: 100%
+            border-color: transparent #333 transparent transparent
+
+    
     button[data-tooltip]:hover::after,
     button[data-tooltip]:hover::before 
         visibility: visible
-        opacity: 1 
+        opacity: 1
+
+    button[data-tooltip]:hover::after:hover
+        visibility: hidden
+        opacity: 0
 
     // Animação do botão descendo
     button:active

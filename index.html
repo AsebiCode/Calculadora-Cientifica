@@ -9,8 +9,12 @@
     <link rel="stylesheet" href="src/script/responsivo.css">
 </head>
 <body>
+    <article id="configuracoes">
+        <h1>Configurações</h1>
+    </article>
+
     <main id="calculadora">   
-        <!-- Ícone de configuração -->
+        <!-- Icons de Histórico e Configurações -->
         <div class="icons">
             <ion-icon name="document-text-outline" size="large"></ion-icon>
             <ion-icon name="settings-sharp" size="large"></ion-icon>
@@ -38,9 +42,9 @@
                     <td><button data-tooltip="Limpar Memória" onclick="ApagarMemoria()">MC</button></td>
                     <td><button data-tooltip="Recuperar Memória" onclick="RecuperarMemoria()">MR</button></td>
                     <td><button data-tooltip="Adicionar Memória" onclick="AdicionarMemoria()">M+</button></td>
-                    <td><button data-tooltip="Subtrair Memória" onclick="SubtrairMemoria()">M-</button></td>
-                    <td><button class="apagar" data-tooltip="Apagar expressão" onclick="apagarResultadoDigito()">AC</button></td>
-                    <td><button class="apagar" data-tooltip="Apagar um dígito" onclick="apagarDigito()">Del</button></td>
+                    <td><button class="tooltip-esquerda" data-tooltip="Subtrair Memória" onclick="SubtrairMemoria()">M-</button></td>
+                    <td><button class="apagar tooltip-esquerda" data-tooltip="Apagar expressão" onclick="apagarResultadoDigito()">AC</button></td>
+                    <td><button class="apagar tooltip-esquerda" data-tooltip="Apagar um dígito" onclick="apagarDigito()">Del</button></td>
                 </tr>
             </table>
         </section>
@@ -52,28 +56,28 @@
                    <td><button class="basico numero" data-tooltip="Sete" onclick="inserirValores('7')">7</button></td>
                    <td><button class="basico numero" data-tooltip="Oito" onclick="inserirValores('8')">8</button></td>
                    <td><button class="basico numero" data-tooltip="Nove" onclick="inserirValores('9')">9</button></td>
-                   <td><button class="basico operador" data-tooltip="Multiplicação" onclick="inserirValores(' x ')">X</button></td>
-                   <td><button class="basico operador" data-tooltip="Adição" onclick="inserirValores(' + ')">+</button></td>
+                   <td><button class="basico operador tooltip-esquerda" data-tooltip="Multiplicação" onclick="inserirValores(' x ')">X</button></td>
+                   <td><button class="basico operador tooltip-esquerda" data-tooltip="Adição" onclick="inserirValores(' + ')">+</button></td>
                 </tr>
                 <tr>
                     <td><button class="basico numero" data-tooltip="Quatro" onclick="inserirValores('4')">4</button></td>
                     <td><button class="basico numero" data-tooltip="Cinco" onclick="inserirValores('5')">5</button></td>
                     <td><button class="basico numero" data-tooltip="Seis" onclick="inserirValores('6')">6</button></td>
-                    <td><button class="basico operador" data-tooltip="Divisão" onclick="inserirValores(' / ')">/</button></td>
-                    <td><button class="basico operador" data-tooltip="Subtração" onclick="inserirValores(' - ')">-</button></td>
+                    <td><button class="basico operador tooltip-esquerda" data-tooltip="Divisão" onclick="inserirValores(' / ')">/</button></td>
+                    <td><button class="basico operador tooltip-esquerda" data-tooltip="Subtração" onclick="inserirValores(' - ')">-</button></td>
                 </tr>
                 <tr>
                     <td><button class="basico numero" data-tooltip="Um" onclick="inserirValores('1')">1</button></td>
                     <td><button class="basico numero" data-tooltip="Dois" onclick="inserirValores('2')">2</button></td>
                     <td><button class="basico numero" data-tooltip="Três" onclick="inserirValores('3')">3</button></td>
-                    <td><button class="basico operador" data-tooltip="Parenteses Esquerdo" onclick="inserirValores(' &#40;')">&#40;</button></td>
-                    <td><button class="basico operador" data-tooltip="Parenteses Direito" onclick="inserirValores('&#41; ')">&#41;</button></td>
+                    <td><button class="basico operador tooltip-esquerda" data-tooltip="Parenteses Esquerdo" onclick="inserirValores(' &#40;')">&#40;</button></td>
+                    <td><button class="basico operador tooltip-esquerda" data-tooltip="Parenteses Direito" onclick="inserirValores('&#41; ')">&#41;</button></td>
                 </tr>
                 <tr>
                     <td><button class="basico numero" data-tooltip="Ponto" onclick="inserirValores('.')">.</button></td>
                     <td><button class="basico numero" data-tooltip="Zero" onclick="inserirValores('0')">0</button></td>
                     <td><button class="basico numero" data-tooltip="Vírgula" onclick="inserirValores(',')">,</button></td>
-                    <td colspan="2"><button class="basico operador igual" data-tooltip="Igual" onclick="calcular()">=</button></td>
+                    <td colspan="2"><button class="basico operador igual tooltip-esquerda" data-tooltip="Igual" onclick="calcular()">=</button></td>
                 </tr>
             </table>
         </section>
@@ -85,33 +89,33 @@
                     <td><button class="avancado" data-tooltip="Resposta da Operação" onclick="inserirRespostaAnterior()">a</button></td>
                     <td><button class="avancado" data-tooltip="Resto da Divisão" onclick="inserirValores(' rest ')">r</button></td>
                     <td><button class="avancado" data-tooltip="Porcentagem" onclick="inserirValores(' % ')">%</td>
-                    <td><button class="avancado" data-tooltip="Raiz Quadrada" onclick="inserirValores(' √')">√</button></td>
-                    <td><button class="avancado" data-tooltip="Raiz Cúbica" onclick="inserirValores(' ³√')">³√</button></td>
-                    <td><button class="avancado" data-tooltip="Raiz Enésima" onclick="inserirValores('ⁿ√')">ⁿ√</button></td>
+                    <td><button class="avancado tooltip-esquerda" data-tooltip="Raiz Quadrada" onclick="inserirValores(' √')">√</button></td>
+                    <td><button class="avancado tooltip-esquerda" data-tooltip="Raiz Cúbica" onclick="inserirValores(' ³√')">³√</button></td>
+                    <td><button class="avancado tooltip-esquerda" data-tooltip="Raiz Enésima" onclick="inserirValores('ⁿ√')">ⁿ√</button></td>
                 </tr>
                 <tr>
                     <td><button class="avancado" data-tooltip="Potência ao Quadrado" onclick="inserirValores('²')">x²</button></td>
                     <td><button class="avancado" data-tooltip="Potência ao Cubo" onclick="inserirValores('³')">x³</button></td>
                     <td><button class="avancado" data-tooltip="Potência Genérica" onclick="inserirValores('^')">xⁿ</button></td>
-                    <td><button class="avancado" data-tooltip="Inverso Multiplicativo" onclick="inserirValores('^-1')">x⁻¹</button></td>
-                    <td><button class="avancado" data-tooltip="Potência Genérica Negativa" onclick="inserirValores('^-')">x⁻ⁿ</button></td>
-                    <td><button class="avancado" data-tooltip="Fatorial" onclick="inserirValores('!')">x!</button></td>
+                    <td><button class="avancado tooltip-esquerda" data-tooltip="Inverso Multiplicativo" onclick="inserirValores('^-1')">x⁻¹</button></td>
+                    <td><button class="avancado tooltip-esquerda" data-tooltip="Potência Genérica Negativa" onclick="inserirValores('^-')">x⁻ⁿ</button></td>
+                    <td><button class="avancado tooltip-esquerda" data-tooltip="Fatorial" onclick="inserirValores('!')">x!</button></td>
                 </tr>
                 <tr>
                     <td><button class="avancado" data-tooltip="Logaritmo de Base 10" onclick="inserirValores('log10(')">l10</button></td>
                     <td><button class="avancado" data-tooltip="Logaritmo" onclick="inserirValores('log(')">lₓn</button></td>
                     <td><button class="avancado" data-tooltip="Logaritmo Natural" onclick="inserirValores('ln(')">ln</button></td>
-                    <td><button class="avancado" data-tooltip="Logaritmo Binário" onclick="inserirValores('lb(')">lb</button></td>
-                    <td><button class="avancado" data-tooltip="Antilogaritmo Natural" onclick="inserirValores('e^')">eˣ</button></td>
-                    <td><button class="avancado" data-tooltip="Antilogaritmo Comum" onclick="inserirValores('10^')">10ˣ</button></td>
+                    <td><button class="avancado tooltip-esquerda" data-tooltip="Logaritmo Binário" onclick="inserirValores('lb(')">lb</button></td>
+                    <td><button class="avancado tooltip-esquerda" data-tooltip="Antilogaritmo Natural" onclick="inserirValores('e^')">eˣ</button></td>
+                    <td><button class="avancado tooltip-esquerda" data-tooltip="Antilogaritmo Comum" onclick="inserirValores('10^')">10ˣ</button></td>
                 </tr>
                 <tr>
                     <td><button class="avancado" data-tooltip="Seno" onclick="inserirValores('sin(')">sin</button></td>
                     <td><button class="avancado" data-tooltip="Cosseno" onclick="inserirValores('cos(')">cos</button></td>
                     <td><button class="avancado" data-tooltip="Tangente" onclick="inserirValores('tan(')">tan</button></td>
-                    <td><button class="avancado" data-tooltip="Cotangente" onclick="inserirValores('cot(')">cot</button></td>
-                    <td><button class="avancado" data-tooltip="Secante" onclick="inserirValores('sec(')">sec</button></td>
-                    <td><button class="avancado" data-tooltip="Cossecante" onclick="inserirValores('csc(')">csc</button></td>
+                    <td><button class="avancado tooltip-esquerda" data-tooltip="Cotangente" onclick="inserirValores('cot(')">cot</button></td>
+                    <td><button class="avancado tooltip-esquerda" data-tooltip="Secante" onclick="inserirValores('sec(')">sec</button></td>
+                    <td><button class="avancado tooltip-esquerda" data-tooltip="Cossecante" onclick="inserirValores('csc(')">csc</button></td>
                 </tr>
                 <!-- <tr>
                     <td><button class="avancado" data-tooltip="" onclick=""></button></td>
@@ -123,6 +127,7 @@
                 </tr> -->
             </table>
         </section>
+
         <footer class="icons">
             <a href="https://github.com/Ayanami016/Calculadora-Cientifica" target="_blank" style="color: gray;">
                 <ion-icon name="logo-github" size="large"></ion-icon>
