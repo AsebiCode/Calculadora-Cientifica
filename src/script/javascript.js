@@ -245,6 +245,8 @@ function exibirAviso(mensagem) {
     }, 2000);
 }
 
-document.getElementById("mudar-tema").addEventListener("click", () => {
-    document.body.classList.toggle("tema-rosa");
-});
+function alterarTema() {
+    document.getElementById("mudar-tema").addEventListener("click", () => {
+        document.body.classList.toggle("tema-rosa");
+    });
+}

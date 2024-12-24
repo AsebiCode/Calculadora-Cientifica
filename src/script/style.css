@@ -12,10 +12,6 @@
   font-family: "digital";
   src: url("../fonts/digital.ttf");
 }
-body {
-  background-color: gray;
-}
-
 #configuracoes {
   display: none;
   margin-top: 2vh;

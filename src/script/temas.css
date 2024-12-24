@@ -2,12 +2,14 @@
     --cor-calculadora: #f9afbb;
     --cor-calculadora-escuro: #cc102d;
 
+    --cor-fundo: #83E589;
+
     --cor-visor: #fadce3;
     --cor-escuro-visor: #f58092;
-
     --cor-icons: #fadce3;
     --cor-botao: #f58092;
     --cor-fundo-botao: #fadce3;
+
     --cor-numeros: #d1566c;
     --cor-fundo-numeros: #f78da4;
     --cor-destaque: #bf344d;
@@ -16,18 +18,24 @@
 
 body.tema-rosa {
     --cor-calculadora: #3d4147;
-    --cor-visor: #64b47c;
+    --cor-calculadora-escuro: #1a1b21;
+
+    --cor-fundo: gray;
 
     --cor-visor: #64b47c;
     --cor-escuro-visor: #096b3d;
-
     --cor-icons: gray;
     --cor-botao: #a87240;
     --cor-fundo-botao: #F2EBBF;
+
     --cor-numeros: #146665;
     --cor-fundo-numeros: #8CBEB2;
     --cor-destaque: #c44f47;
     --cor-fundo-destaque: #F3C486;
+}
+
+body {
+    background-color: var(--cor-fundo);
 }
 
 #calculadora {
