@@ -1,22 +1,4 @@
-:root {
-    --cor-calculadora: #f9afbb;
-    --cor-calculadora-escuro: #cc102d;
-
-    --cor-fundo: #83E589;
-
-    --cor-visor: #fadce3;
-    --cor-escuro-visor: #f58092;
-    --cor-icons: #fadce3;
-    --cor-botao: #f58092;
-    --cor-fundo-botao: #fadce3;
-
-    --cor-numeros: #d1566c;
-    --cor-fundo-numeros: #f78da4;
-    --cor-destaque: #bf344d;
-    --cor-fundo-destaque: #fa7390;
-}
-
-body.tema-rosa {
+body.tema-padrao {
     --cor-calculadora: #3d4147;
     --cor-calculadora-escuro: #1a1b21;
 
@@ -34,12 +16,49 @@ body.tema-rosa {
     --cor-fundo-destaque: #F3C486;
 }
 
+body.tema-madoka {
+    --cor-calculadora: #f9afbb;
+    --cor-calculadora-escuro: #bf344d;
+
+    --cor-fundo: #83E589;
+
+    --cor-visor: #fadce3;
+    --cor-escuro-visor: #f58092;
+    --cor-icons: #fadce3;
+    --cor-botao: #f58092;
+    --cor-fundo-botao: #fadce3;
+
+    --cor-numeros: #d1566c;
+    --cor-fundo-numeros: #f78da4;
+    --cor-destaque: #bf344d;
+    --cor-fundo-destaque: #fa7390;
+}
+
+body.tema-homura {
+    --cor-calculadora: #342845;
+    --cor-calculadora-escuro: #261a2b;
+
+    --cor-fundo: #625673;
+
+    --cor-visor: #6d597d;
+    --cor-escuro-visor: #2e1d33;
+    --cor-icons: #6d597d;
+    --cor-botao: #2e1d33;
+    --cor-fundo-botao: #6d597d;
+
+    --cor-numeros: #221b36;
+    --cor-fundo-numeros: #6c6c96;
+    --cor-destaque: #8a6dad;
+    --cor-fundo-destaque: #573066;
+}
+
 body {
     background-color: var(--cor-fundo);
 }
 
 #calculadora {
     background-color: var(--cor-calculadora);
+    box-shadow: 0 10px 0 var(--cor-calculadora-escuro);
 }
 
 #calculadora .icons,
@@ -56,11 +75,6 @@ body {
 #calculadora button[data-tooltip]::after {
     background-color: #333;
     color: #fff;
-}
-
-#calculadora button.numero {
-    color: #146665;
-    background-color: #8CBEB2;
 }
 
 #calculadora button.numero {
@@ -81,6 +95,10 @@ body {
 
 #visor #visor-memoria {
     color: var(--cor-visor);
+}
+
+#visor #visor-memoria.com-memoria {
+    color: var(--cor-escuro-visor);
 }
 
 #botoes-memoria button.apagar {

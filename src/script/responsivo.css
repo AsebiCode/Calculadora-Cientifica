@@ -1,4 +1,8 @@
 @media (max-width: 920px) {
+  #configuracoes {
+    width: 85%;
+    left: 7%;
+  }
   #calculadora {
     margin-top: 0;
     width: 100%;

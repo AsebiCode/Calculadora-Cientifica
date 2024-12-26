@@ -11,24 +11,6 @@
     font-family: 'digital'
     src: url('../fonts/digital.ttf')
 
-// Cores
-$corCalculadora: #3d4147
-$corCalculadoraEscuro: #1a1b21
-
-$corIcon: gray
-$corVisor: #64b47c
-$corEscuroVisor: #096b3d
-$corBotao: #F2EBBF
-$corConteudoBotao: #a87240
-
-$corNumeros: #146665
-$corFundoNumeros: #8CBEB2
-$corIgual: #c44f47
-$corFundoIgual: #F3C486
-
-body
-    background-color: $corFundo
-
 #configuracoes
     display: none
     margin-top: 2vh
@@ -43,36 +25,51 @@ body
     text-align: center
     z-index: 2
 
+    span
+        margin-bottom: 10px
+        display: flex
+        justify-content: space-between
+        align-items: center
+
+    span.titulo-config
+        margin-bottom: 20px
+
     h1
-        font: 1.4em pixel
+        font: 1.2em pixel
         color: #fff
 
+    p
+        font: 1em pixel
+        color: #fff
+
+    select
+        padding: 5px
+        width: 200px
+        font: 0.8em pixel
+
+    ion-icon
+        color: #fff
+        cursor: pointer
+
 #calculadora
-    margin-top: 2vh
     display: flex
     flex-direction: column
     justify-content: space-evenly
     align-items: center
-    position: absolute  
+    position: absolute
     left: 25% 
     height: 100%
     border-radius: 15px
     width: 50%
-    background-color: $corCalculadora
-    box-shadow: 0 10px 0 $corCalculadoraEscuro
-
+    
     .icons
         display: flex
         justify-content: right
         width: 95%
-        color: $corIcon
 
         ion-icon
             margin: 10px 10px 10px 0
             cursor: pointer
-
-        a
-            color: $corIcon
 
         #mudar-tema
             margin-right: 15px
@@ -111,9 +108,6 @@ body
         height: 100%
         width: 95%
         font: 1.2em pixel
-        border-color: $corBotao
-        background-color: $corBotao
-        color: $corConteudoBotao
         box-shadow: 0 4px 0
         transition-duration: .2s
 
@@ -122,8 +116,6 @@ body
         &::after
             content: attr(data-tooltip)
             visibility: hidden
-            background-color: #333
-            color: #fff
             text-align: center
             padding: 5px
             border-radius: 4px
@@ -178,23 +170,14 @@ body
         transform: translateY(2px)
         box-shadow: 0 2px 0
 
-    button.numero
-        color: $corNumeros
-        background-color: $corFundoNumeros
-
     button.igual
         width: 97.5%
-        color: $corIgual
-        background-color: $corFundoIgual
 
 // Span do resultado - Visor
 #visor
     padding: 10px
     width: 90%
     border-radius: 5px
-    color: $corEscuroVisor
-    background-color: $corVisor
-    box-shadow: 0 5px 0 $corEscuroVisor
 
     // alinhado a esquerda
     #visor-insercao
@@ -210,15 +193,7 @@ body
     #visor-resultado
         text-align: right
 
-    #visor-memoria
-        color: $corVisor
-
     #visor-resultado, #visor-memoria
         font: 2.2em digital
         font-weight: bold
         height: 34px // Conforme tamanho do texto
-
-#botoes-memoria
-    button.apagar
-        color: $corIgual
-        background-color: $corFundoIgual

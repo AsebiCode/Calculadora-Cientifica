@@ -1,5 +1,5 @@
-function visorInsercao() {return document.getElementById("visor-insercao")}
-function visorResultado() {return document.getElementById("visor-resultado")}
+function visorInsercao() {return document.getElementById("visor-insercao");}
+function visorResultado() {return document.getElementById("visor-resultado");}
 
 function inserirValores(valor) {
     visorInsercao().innerHTML += valor;
@@ -198,9 +198,9 @@ function LogMemoria() {return console.log(`Memória armazenada: ${Memoria}`);}
 function AtualizarIndicadorMemoria() {
     const indicador = document.getElementById("visor-memoria");
     if (Memoria !== 0) {
-        indicador.style.color = "#096b3d";
+        indicador.classList.add("com-memoria");
     } else {
-        indicador.style.color = "#64b47c";
+        indicador.classList.remove("com-memoria");
     }
 }
 
@@ -245,8 +245,30 @@ function exibirAviso(mensagem) {
     }, 2000);
 }
 
-function alterarTema() {
-    document.getElementById("mudar-tema").addEventListener("click", () => {
-        document.body.classList.toggle("tema-rosa");
-    });
-}
+function iconConfiguracoes() {return document.getElementById("icon-configuracao");}
+function iconFecharConfiguracoes() {return document.getElementById("fechar-configuracao");}
+function divConfiguracoes() {return document.getElementById("configuracoes");}
+
+iconConfiguracoes().addEventListener("click", () => {
+    divConfiguracoes().style.display = "block";
+});
+
+iconFecharConfiguracoes().addEventListener("click", () => {
+    divConfiguracoes().style.display = "none";
+});
+
+const seletorTemas = document.getElementById("temas");
+
+seletorTemas.addEventListener("change", (e) => {
+    const temaSelecionado = e.target.value;
+
+    document.body.classList.remove("tema-padrao", "tema-madoka", "tema-homura");
+
+    if (temaSelecionado === "madoka") {
+        document.body.classList.add("tema-madoka");
+    } else if (temaSelecionado === "homura") {
+        document.body.classList.add("tema-homura");
+    } else {
+        document.body.classList.add("tema-padrao");
+    }
+});

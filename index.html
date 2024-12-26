@@ -9,17 +9,30 @@
     <link rel="stylesheet" href="src/script/temas.css">
     <link rel="stylesheet" href="src/script/responsivo.css">
 </head>
-<body class="tema-rosa">
+<body class="tema-padrao">
     <article id="configuracoes">
-        <h1>Configurações</h1>
+        <span class="titulo-config">
+            <h1>Configurações</h1>
+            <ion-icon id="fechar-configuracao" name="close-outline" size="large"></ion-icon>
+        </span>
+        <span>
+            <p>Tema</p>
+            <select name="temas" id="temas">
+                <option value="padrao">Padrão</option>
+                <option value="madoka">Madoka</option>
+                <option value="homura">Homura</option>
+            </select>
+        </span>
+        <span>
+            <p>Dicas</p>
+        </span>
     </article>
 
     <main id="calculadora">   
         <!-- Icons de Histórico e Configurações -->
         <div class="icons">
-            <button id="mudar-tema">Tema</button>
             <ion-icon name="document-text-outline" size="large"></ion-icon>
-            <ion-icon name="settings-sharp" size="large"></ion-icon>
+            <ion-icon id="icon-configuracao" name="settings-sharp" size="large"></ion-icon>
         </div>
   
         <!-- Visor -->
