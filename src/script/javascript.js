@@ -249,6 +249,10 @@ function iconConfiguracoes() {return document.getElementById("icon-configuracao"
 function iconFecharConfiguracoes() {return document.getElementById("fechar-configuracao");}
 function divConfiguracoes() {return document.getElementById("configuracoes");}
 
+function iconHistorico() {return document.getElementById("icon-historico");}
+function iconFecharHistorico() {return document.getElementById("fechar-historico");}
+function divHistorico() {return document.getElementById("historico");}
+
 iconConfiguracoes().addEventListener("click", () => {
     divConfiguracoes().style.display = "block";
 });
@@ -257,18 +261,35 @@ iconFecharConfiguracoes().addEventListener("click", () => {
     divConfiguracoes().style.display = "none";
 });
 
+iconHistorico().addEventListener("click", () => {
+    divHistorico().style.display = "block";
+});
+
+iconFecharHistorico().addEventListener("click", () => {
+    divHistorico().style.display = "none";
+});
+
 const seletorTemas = document.getElementById("temas");
 
 seletorTemas.addEventListener("change", (e) => {
     const temaSelecionado = e.target.value;
 
-    document.body.classList.remove("tema-padrao", "tema-madoka", "tema-homura");
+    document.body.classList.remove(
+        "tema-madoka", "tema-homura", "tema-sunflower"
+    );
 
-    if (temaSelecionado === "madoka") {
-        document.body.classList.add("tema-madoka");
-    } else if (temaSelecionado === "homura") {
-        document.body.classList.add("tema-homura");
-    } else {
-        document.body.classList.add("tema-padrao");
+    switch (temaSelecionado) {
+        case "madoka":
+            document.body.classList.add("tema-madoka");
+            break;
+        case "homura":
+            document.body.classList.add("tema-homura");
+            break;
+        case "sunflower":
+            document.body.classList.add("tema-sunflower");
+            break;
+        default:
+            document.body.classList.add("tema-padrao");
+            break;
     }
 });

@@ -52,6 +52,24 @@ body.tema-homura {
     --cor-fundo-destaque: #573066;
 }
 
+body.tema-sunflower {
+    --cor-calculadora: #fabf34;
+    --cor-calculadora-escuro: #eb8f2d;
+
+    --cor-fundo: #7fcc50;
+
+    --cor-visor: #fae875;
+    --cor-escuro-visor: #eb8f2d;
+    --cor-icons: #fae875;
+    --cor-botao: #eb8f2d;
+    --cor-fundo-botao: #fae875;
+
+    --cor-numeros: #347a22;
+    --cor-fundo-numeros: #7fcc50;
+    --cor-destaque: #6e310b;
+    --cor-fundo-destaque: #a16818;
+}
+
 body {
     background-color: var(--cor-fundo);
 }

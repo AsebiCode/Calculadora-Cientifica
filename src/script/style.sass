@@ -11,7 +11,7 @@
     font-family: 'digital'
     src: url('../fonts/digital.ttf')
 
-#configuracoes
+@mixin div-separada()
     display: none
     margin-top: 2vh
     position: absolute
@@ -25,11 +25,17 @@
     text-align: center
     z-index: 2
 
+@mixin span-div-separada()
+    display: flex
+    margin-bottom: 10px
+    justify-content: space-between
+    align-items: center
+
+#configuracoes, #historico
+    @include div-separada
+
     span
-        margin-bottom: 10px
-        display: flex
-        justify-content: space-between
-        align-items: center
+        @include span-div-separada
 
     span.titulo-config
         margin-bottom: 20px
@@ -42,14 +48,15 @@
         font: 1em pixel
         color: #fff
 
+    ion-icon
+        color: #fff
+        cursor: pointer
+
+#configuracoes
     select
         padding: 5px
         width: 200px
         font: 0.8em pixel
-
-    ion-icon
-        color: #fff
-        cursor: pointer
 
 #calculadora
     display: flex

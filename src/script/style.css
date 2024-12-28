@@ -12,7 +12,7 @@
   font-family: "digital";
   src: url("../fonts/digital.ttf");
 }
-#configuracoes {
+#configuracoes, #historico {
   display: none;
   margin-top: 2vh;
   position: absolute;
@@ -26,31 +26,32 @@
   text-align: center;
   z-index: 2;
 }
-#configuracoes span {
-  margin-bottom: 10px;
+#configuracoes span, #historico span {
   display: flex;
+  margin-bottom: 10px;
   justify-content: space-between;
   align-items: center;
 }
-#configuracoes span.titulo-config {
+#configuracoes span.titulo-config, #historico span.titulo-config {
   margin-bottom: 20px;
 }
-#configuracoes h1 {
+#configuracoes h1, #historico h1 {
   font: 1.2em pixel;
   color: #fff;
 }
-#configuracoes p {
+#configuracoes p, #historico p {
   font: 1em pixel;
   color: #fff;
 }
+#configuracoes ion-icon, #historico ion-icon {
+  color: #fff;
+  cursor: pointer;
+}
+
 #configuracoes select {
   padding: 5px;
   width: 200px;
   font: 0.8em pixel;
-}
-#configuracoes ion-icon {
-  color: #fff;
-  cursor: pointer;
 }
 
 #calculadora {
