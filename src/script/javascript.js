@@ -270,26 +270,16 @@ iconFecharHistorico().addEventListener("click", () => {
 });
 
 const seletorTemas = document.getElementById("temas");
+const ListaTemas = [
+    "tema-padrao",
+    "tema-madoka",
+    "tema-homura",
+    "tema-sunflower"
+];
 
 seletorTemas.addEventListener("change", (e) => {
     const temaSelecionado = e.target.value;
 
-    document.body.classList.remove(
-        "tema-madoka", "tema-homura", "tema-sunflower"
-    );
-
-    switch (temaSelecionado) {
-        case "madoka":
-            document.body.classList.add("tema-madoka");
-            break;
-        case "homura":
-            document.body.classList.add("tema-homura");
-            break;
-        case "sunflower":
-            document.body.classList.add("tema-sunflower");
-            break;
-        default:
-            document.body.classList.add("tema-padrao");
-            break;
-    }
+    document.body.classList.remove(...ListaTemas);
+    document.body.classList.add(`tema-${temaSelecionado || "padrao"}`);
 });
