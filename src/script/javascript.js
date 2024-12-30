@@ -45,59 +45,136 @@ function apagarSinalDuplo() {
 function normalizarExpressoes(expressao) {
     const substituicoes = [
         // Multiplicação (x → *)
-        {regex: /\bx\b/g, to: '*'},
+        {regex: /\bx\b/g,
+            to: '*'},
+
         // Descobrir porcentagem (x%?y -> x * y / 100)
-        {regex: /(-?\d+(\.\d+)?)%\?(-?\d+(\.\d+)?)/g, to: '($1 * $2 / 100)'},
+        {regex: /(-?\d+(\.\d+)?)%\?(-?\d+(\.\d+)?)/g, 
+            to: '($1 * $2 / 100)'},
+
         // Porcentagem (% → /100*)
-        {regex: /%/g, to: '/100*'},
+        {regex: /%/g, 
+            to: '/100*'},
+
         // Resto da divisão (rest → %)
-        {regex: /rest/g, to: '%'},
+        {regex: /rest/g, 
+            to: '%'},
+
         // Raiz enésima (nⁿ√x)
-        {regex: /(-?\d+(\.\d+)?)ⁿ√\s*(-?\d+(\.\d+)?)/g, to: 'Math.pow($3, 1/$1)'},
+        {regex: /(-?\d+(\.\d+)?)ⁿ√\s*(-?\d+(\.\d+)?)/g,
+            to: 'Math.pow($3, 1/$1)'},
+
         // Raiz cúbica (³√x)
-        {regex: /³√\s*(-?\d+(\.\d+)?)/g, to: 'Math.cbrt($1)'},
+        {regex: /³√\s*(-?\d+(\.\d+)?)/g, 
+            to: 'Math.cbrt($1)'},
+
         // Raiz quadrada (√x)
-        {regex: /√\s*(-?\d+(\.\d+)?)/g, to: 'Math.sqrt($1)'},
+        {regex: /√\s*(-?\d+(\.\d+)?)/g, 
+            to: 'Math.sqrt($1)'},
+
         // Potência genérica (x^)
-        {regex: /(-?\d+(\.\d+)?)\^(-?\d+(\.\d+)?)/g, to: 'Math.pow($1, $3)'},
+        {regex: /(-?\d+(\.\d+)?)\^(-?\d+(\.\d+)?)/g, 
+            to: 'Math.pow($1, $3)'},
+
         // Potência ao quadrado (x²)
-        {regex: /(-?\d+(\.\d+)?)²/g, to: 'Math.pow($1, 2)'},
+        {regex: /(-?\d+(\.\d+)?)²/g, 
+            to: 'Math.pow($1, 2)'},
+
         // Potência ao cubo (x³)
-        {regex: /(-?\d+(\.\d+)?)³/g, to: 'Math.pow($1, 3)'},
+        {regex: /(-?\d+(\.\d+)?)³/g, 
+            to: 'Math.pow($1, 3)'},
+
         // Potência com expoente negativo (x^-n)
-        {regex: /(-?\d+(\.\d+)?)\^-(-?\d+(\.\d+)?)/g, to: 'Math.pow($1, -($3))'},
+        {regex: /(-?\d+(\.\d+)?)\^-(-?\d+(\.\d+)?)/g, 
+            to: 'Math.pow($1, -($3))'},
+
         // Inverso multiplicativo (x^-1)
-        {regex: /(-?\d+(\.\d+)?)\^-1/g, to: 'Math.pow($1, -1)'},
+        {regex: /(-?\d+(\.\d+)?)\^-1/g, 
+            to: 'Math.pow($1, -1)'},
+
         // Fatorial (x!)
-        {regex: /(-?\d+(\.\d+)?)!/g, to: 'fatorial($1)'},
+        {regex: /(-?\d+(\.\d+)?)!/g, 
+            to: 'fatorial($1)'},
+
         // Logaritmo natural (ln(x))
-        {regex: /ln\((-?\d+(\.\d+)?)\)/g, to: 'Math.log($1)'},
+        {regex: /ln\((-?\d+(\.\d+)?)\)/g, 
+            to: 'Math.log($1)'},
+
         // Logaritmo binário (lb(x) -> log base 2)
-        {regex: /lb\((-?\d+(\.\d+)?)\)/g, to: '(Math.log($1) / Math.log(2))'},
+        {regex: /lb\((-?\d+(\.\d+)?)\)/g, 
+            to: '(Math.log($1) / Math.log(2))'},
+
         // Logaritmo Comum
-        {regex: /log\(\s*(-?\d+(\.\d+)?),\s*(-?\d+(\.\d+)?)\s*\)/g, to: '($1 > 0 && $1 !== 1 && $3 > 0 ? Math.log($3) / Math.log($1) : NaN)'},
+        {regex: /log\(\s*(-?\d+(\.\d+)?),\s*(-?\d+(\.\d+)?)\s*\)/g,
+            to: '($1 > 0 && $1 !== 1 && $3 > 0 ? Math.log($3) / Math.log($1) : NaN)'},
+
         // Antilogaritmo natural (eˣ)
-        {regex: /e\^\s*(-?\d+(\.\d+)?)/g, to: 'Math.exp($1)'},
+        {regex: /e\^\s*(-?\d+(\.\d+)?)/g, 
+            to: 'Math.exp($1)'},
+
         // Antilogaritmo comum (10ˣ)
-        {regex: /10\^\s*(-?\d+(\.\d+)?)/g, to: 'Math.pow(10, $1)'},
+        {regex: /10\^\s*(-?\d+(\.\d+)?)/g, 
+            to: 'Math.pow(10, $1)'},
+
         // Logaritmo de Base 10
-        {regex: /log10\((-?\d+(\.\d+)?)\)/g, to: 'Math.log10($1)'},
+        {regex: /log10\((-?\d+(\.\d+)?)\)/g, 
+            to: 'Math.log10($1)'},
+
         // Seno
-        {regex: /sin\((-?\d+(\.\d+)?)\)/g, to: 'Math.sin($1)'},
+        {regex: /sin\((-?\d+(\.\d+)?)\)/g, 
+            to: 'Math.sin($1)'},
+
         // Cosseno
-        {regex: /cos\((-?\d+(\.\d+)?)\)/g, to: 'Math.cos($1)'},
+        {regex: /cos\((-?\d+(\.\d+)?)\)/g, 
+            to: 'Math.cos($1)'},
+
         // Tangente
-        {regex: /tan\((-?\d+(\.\d+)?)\)/g, to: 'Math.tan($1)'},
+        {regex: /tan\((-?\d+(\.\d+)?)\)/g, 
+            to: 'Math.tan($1)'},
+
         // Cotangente
-        {regex: /cot\((-?\d+(\.\d+)?)\)/g, to: '(1 / Math.tan($1))'},
+        {regex: /cot\((-?\d+(\.\d+)?)\)/g, 
+            to: '(1 / Math.tan($1))'},
+
         // Secante
-        {regex: /sec\((-?\d+(\.\d+)?)\)/g, to: '(1 / Math.cos($1))'},
+        {regex: /sec\((-?\d+(\.\d+)?)\)/g,
+            to: '(1 / Math.cos($1))'},
+
         // Cossecante
-        {regex: /csc\((-?\d+(\.\d+)?)\)/g, to: '(1 / Math.sin($1))'},
+        {regex: /csc\((-?\d+(\.\d+)?)\)/g, 
+            to: '(1 / Math.sin($1))'},
+
+        // Arco Seno
+        {regex: /asin\((-?\d+(\.\d+)?|0?\.\d+)\)/g,
+            to: 'Math.asin($1)'},
+
+        // Arco Cosseno
+        {regex: /acos\((-?\d+(\.\d+)?|0?\.\d+)\)/g, 
+            to: 'Math.acos($1)'},
+
+        // Arco Tangente
+        {regex: /atan\((-?\d+(\.\d+)?|0?\.\d+)\)/g, 
+            to: 'Math.atan($1)'},
+
+        // Arco Secante
+        {regex: /asec\((-?\d+(\.\d+)?|0?\.\d+)\)/g, 
+            to: 'x => x >= 1 || x <= -1 ? Math.acos(1 / x) : tratandoNaN()'},
+
+        // Arco Cotangente
+        {regex: /acot\((-?\d+(\.\d+)?|0?\.\d+)\)/g, 
+            to: 'x => x !== 0 ? Math.atan(1 / x) : tratandoNan()'},
+
+        // Arco Cossecante
+        {regex: /acsc\((-?\d+(\.\d+)?|0?\.\d+)\)/g, 
+            to: 'x => x >= 1 || x <= -1 ? Math.asin(1 / x) : tratandoNan()'},
+
         // Grau para Radiano
-        {regex: /g\((-?\d+(\.\d+)?)\)/g, to: '$1 * (Math.PI/180)'},
+        {regex: /g\((-?\d+(\.\d+)?)\)/g, 
+            to: '$1 * (Math.PI/180)'},
+            
         // Radiano para Grau
-        {regex: /rad\((-?\d+(\.\d+)?)\)/g, to: '$1 * (180/Math.PI)'},
+        {regex: /rad\((-?\d+(\.\d+)?)\)/g,
+            to: '$1 * (180/Math.PI)'},
     ];
 
     console.log("Expressão normalizada: ", expressao);

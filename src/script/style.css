@@ -83,6 +83,9 @@ html, body {
   height: 30px;
   font-size: 0.7em;
 }
+#calculadora .icon-github {
+  margin-top: 10px;
+}
 #calculadora #avisos {
   margin-top: 20px;
   font: 0.8em pixel;
@@ -99,10 +102,10 @@ html, body {
   border-collapse: collapse;
   margin: 0 auto;
 }
-#calculadora table#botoes-basico td {
+#calculadora table#botoes-basico td, #calculadora table#botoes-avancado td {
   width: 20%;
 }
-#calculadora table#botoes-memoria td, #calculadora table#botoes-avancado td {
+#calculadora table#botoes-memoria td {
   width: 16.66%;
 }
 #calculadora button {
