@@ -94,6 +94,10 @@ function normalizarExpressoes(expressao) {
         {regex: /sec\((-?\d+(\.\d+)?)\)/g, to: '(1 / Math.cos($1))'},
         // Cossecante
         {regex: /csc\((-?\d+(\.\d+)?)\)/g, to: '(1 / Math.sin($1))'},
+        // Grau para Radiano
+        {regex: /g\((-?\d+(\.\d+)?)\)/g, to: '$1 * (Math.PI/180)'},
+        // Radiano para Grau
+        {regex: /rad\((-?\d+(\.\d+)?)\)/g, to: '$1 * (180/Math.PI)'},
     ];
 
     console.log("Expressão normalizada: ", expressao);
