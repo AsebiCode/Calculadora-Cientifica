@@ -194,9 +194,9 @@ html, body {
   width: 100%;
   border: none;
   outline: 0;
-}
-#visor #visor-insercao input {
-  height: 32px;
+  min-height: 2.5em;
+  padding: 5px 10px;
+  line-height: 1.2;
 }
 #visor .visorinferior {
   display: flex;
