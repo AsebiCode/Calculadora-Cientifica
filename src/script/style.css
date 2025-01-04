@@ -185,6 +185,8 @@ html, body {
 #visor #visor-insercao {
   height: 32px;
   font: 2em digital;
+  border: none;
+  outline: 0;
 }
 #visor .visorinferior {
   display: flex;

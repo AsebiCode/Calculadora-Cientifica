@@ -114,8 +114,6 @@ body {
 #visor #visor-insercao {
     background-color: var(--cor-visor);
     color: var(--cor-escuro-visor);
-    border: none;
-    outline: 0;
 }
 
 #visor #visor-memoria {
