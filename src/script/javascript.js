@@ -2,20 +2,23 @@ function visorInsercao() {return document.getElementById("visor-insercao");}
 function visorResultado() {return document.getElementById("visor-resultado");}
 
 function inserirValores(valor) {
-    visorInsercao().innerHTML += valor;
+    const visor = visorInsercao();
+    visor.value += valor;
+
     RemoverPontoInicial();
     RemoverZeroDuploInicial();
 
-    if ((/\.\./.test(visorInsercao().innerText))||(/\,\,/.test(visorInsercao().innerText))) {
+    if (/\.\./.test(visor.value)) {
         exibirAviso("Não é permitido inserir dois pontos consecutivos.");
-        apagarDigito();
+        apagarDigito(); 
     }
 
     if (ChecarSinaisDuplos()) {
         exibirAviso("Não é possível inserir sinais duplicados.");
-        apagarSinalDuplo();
+        apagarSinalDuplo(); 
     }
 }
+
 
 function tratandoNaN() {
     if (visorResultado().innerHTML === "NaN") {
@@ -24,25 +27,25 @@ function tratandoNaN() {
 }
 
 function inserirRespostaAnterior() {
-    visorInsercao().innerHTML += RespostaGuardada;
+    visorInsercao().value += RespostaGuardada;
 }
 
 function apagarResultadoDigito() {
-    visorInsercao().innerHTML = ""; 
+    visorInsercao().value = ""; 
     visorResultado().innerHTML = "0";
 }
 
 function apagarDigito() {
-    var textoAtual = visorInsercao().innerHTML;
-    visorInsercao().innerHTML = textoAtual.slice(0, -1);
+    var textoAtual = visorInsercao();
+    textoAtual.value = textoAtual.value.slice(0, -1);
 }
 
 function apagarSinalDuplo() {
-    var textoAtual = visorInsercao().innerHTML;
-    visorInsercao().innerHTML = textoAtual.slice(0, -3);
+    var textoAtual = visorInsercao();
+    textoAtual.value = textoAtual.value.slice(0, -3);
 }
 
-function normalizarExpressoes(expressao) {
+function tratarExpressoes(expressao) {
     const substituicoes = [
         // Multiplicação (x → *)
         {regex: /\bx\b/g,
@@ -144,11 +147,11 @@ function normalizarExpressoes(expressao) {
         {regex: /csc\((-?\d+(\.\d+)?)\)/g, 
             to: '(1 / Math.sin($1))'},
 
-        // Arco Seno
+        // Arco Seno [−1,1]
         {regex: /asin\((-?\d+(\.\d+)?|0?\.\d+)\)/g,
             to: 'Math.asin($1)'},
 
-        // Arco Cosseno
+        // Arco Cosseno [−1,1]
         {regex: /acos\((-?\d+(\.\d+)?|0?\.\d+)\)/g, 
             to: 'Math.acos($1)'},
 
@@ -156,7 +159,7 @@ function normalizarExpressoes(expressao) {
         {regex: /atan\((-?\d+(\.\d+)?|0?\.\d+)\)/g, 
             to: 'Math.atan($1)'},
 
-        // Arco Secante
+        // Arco Secante [−1,1]
         {regex: /asec\((-?\d+(\.\d+)?|0?\.\d+)\)/g, 
             to: 'x => x >= 1 || x <= -1 ? Math.acos(1 / x) : tratandoNaN()'},
 
@@ -164,17 +167,17 @@ function normalizarExpressoes(expressao) {
         {regex: /acot\((-?\d+(\.\d+)?|0?\.\d+)\)/g, 
             to: 'x => x !== 0 ? Math.atan(1 / x) : tratandoNan()'},
 
-        // Arco Cossecante
+        // Arco Cossecante [−1,1]
         {regex: /acsc\((-?\d+(\.\d+)?|0?\.\d+)\)/g, 
             to: 'x => x >= 1 || x <= -1 ? Math.asin(1 / x) : tratandoNan()'},
 
-        // Grau para Radiano
-        {regex: /g\((-?\d+(\.\d+)?)\)/g, 
-            to: '$1 * (Math.PI/180)'},
+        // // Grau para Radiano
+        // {regex: /g\((-?\d+(\.\d+)?)\)/g, 
+        //     to: '$1 * (Math.PI/180)'},
             
-        // Radiano para Grau
-        {regex: /rad\((-?\d+(\.\d+)?)\)/g,
-            to: '$1 * (180/Math.PI)'},
+        // // Radiano para Grau
+        // {regex: /rad\((-?\d+(\.\d+)?)\)/g,
+        //     to: '$1 * (180/Math.PI)'},
     ];
 
     console.log("Expressão normalizada: ", expressao);
@@ -222,19 +225,17 @@ function gamma(z) {
 }
 
 function RemoverPontoInicial() {
-    const conteudoVisor = visorInsercao().innerText;
-
-    if (conteudoVisor.startsWith(".")) {
-        visorInsercao().innerText = "";
+    const visor = visorInsercao();
+    if (visor.value.startsWith(".")) {
+        visor.value = "";
         exibirAviso("Não é permitido . no início da operação.");
     }
 }
 
 function RemoverZeroDuploInicial() {
-    const conteudoVisor = visorInsercao().innerText;
-
-    if (/^0\d/.test(conteudoVisor)) {
-        visorInsercao().innerText = conteudoVisor.replace(/^0+/, "0");
+    const visor = visorInsercao();
+    if (/^0\d/.test(visor.value)) {
+        visor.value = visor.value.replace(/^0+/, "0");
         exibirAviso("Não é permitido mais de um zero à esquerda.");
     }
 }
@@ -242,7 +243,7 @@ function RemoverZeroDuploInicial() {
 const SinaisDuplos = [/\+ \+/, /- -/, /\/ \//, /x x/, /% %/];
 
 function ChecarSinaisDuplos() {
-    const conteudoVisor = visorInsercao().innerText;
+    const conteudoVisor = visorInsercao().value;
 
     for (let regex of SinaisDuplos) {
         regex.lastIndex = 0;
@@ -254,23 +255,26 @@ function ChecarSinaisDuplos() {
 }
 
 function calcular() {
-    let expressao = visorInsercao().innerHTML;
+    let expressao = visorInsercao().value;
 
     if (expressao) {
         try {
-            expressao = normalizarExpressoes(expressao);
+            expressao = tratarExpressoes(expressao);
             let resultado = eval(expressao);
 
-            visorResultado().innerHTML = resultado;
+            visorResultado().innerText = resultado;
             RespostaGuardada = resultado;
-            visorInsercao().innerHTML = "";
+
+            visorInsercao().value = "";
+
             tratandoNaN();
-        } catch (e) {
-            visorResultado().innerHTML = "Erro"; 
+        } catch {
+            visorResultado().innerText = "Erro";
         }
     }
     return RespostaGuardada;
 }
+
 
 let Memoria = 0;
 
@@ -298,7 +302,7 @@ function SubtrairMemoria() {
 }
 
 function RecuperarMemoria() {
-    visorInsercao().innerHTML += Memoria;
+    visorInsercao().value += Memoria;
     RemoverZeroDuploInicial();
     AtualizarIndicadorMemoria();
     LogMemoria();

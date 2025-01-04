@@ -111,6 +111,13 @@ body {
     box-shadow: 0 5px 0 var(--cor-escuro-visor);
 }
 
+#visor #visor-insercao {
+    background-color: var(--cor-visor);
+    color: var(--cor-escuro-visor);
+    border: none;
+    outline: 0;
+}
+
 #visor #visor-memoria {
     color: var(--cor-visor);
 }
