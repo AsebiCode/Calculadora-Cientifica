@@ -194,6 +194,8 @@ html, body {
   width: 100%;
   border: none;
   outline: 0;
+  height: auto;
+  line-height: 1.2;
 }
 #visor .visorinferior {
   display: flex;
