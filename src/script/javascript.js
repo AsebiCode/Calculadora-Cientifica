@@ -2,13 +2,12 @@ function visorInsercao() {return document.getElementById("visor-insercao");}
 function visorResultado() {return document.getElementById("visor-resultado");}
 
 function inserirValores(valor) {
-    const visor = visorInsercao();
-    visor.value += valor;
+    visorInsercao().value += valor;
 
     RemoverPontoInicial();
     RemoverZeroDuploInicial();
 
-    if (/\.\./.test(visor.value)) {
+    if ((/\.\./.test(visorInsercao().value))||(/\,\,/.test(visorInsercao().value))) {
         exibirAviso("Não é permitido inserir dois pontos consecutivos.");
         apagarDigito(); 
     }
@@ -18,7 +17,6 @@ function inserirValores(valor) {
         apagarSinalDuplo(); 
     }
 }
-
 
 function tratandoNaN() {
     if (visorResultado().innerHTML === "NaN") {
@@ -30,7 +28,7 @@ function inserirRespostaAnterior() {
     visorInsercao().value += RespostaGuardada;
 }
 
-function apagarResultadoDigito() {
+function apagarResultado() {
     visorInsercao().value = ""; 
     visorResultado().innerHTML = "0";
 }
@@ -226,7 +224,7 @@ function gamma(z) {
 
 function RemoverPontoInicial() {
     const visor = visorInsercao();
-    if (visor.value.startsWith(".")) {
+    if (visor.value.startsWith(".")||visor.value.startsWith(",")) {
         visor.value = "";
         exibirAviso("Não é permitido . no início da operação.");
     }
@@ -240,7 +238,7 @@ function RemoverZeroDuploInicial() {
     }
 }
 
-const SinaisDuplos = [/\+ \+/, /- -/, /\/ \//, /x x/, /% %/];
+const SinaisDuplos = [/\+  \+/, /-  -/, /\/  \//, /x  x/, /%  %/];
 
 function ChecarSinaisDuplos() {
     const conteudoVisor = visorInsercao().value;
