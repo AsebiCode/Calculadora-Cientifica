@@ -182,6 +182,14 @@ html, body {
   width: 90%;
   border-radius: 5px;
 }
+#visor input[type=number]::-webkit-inner-spin-button,
+#visor input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+  height: 32px;
+}
 #visor #visor-insercao {
   height: 32px;
   font: 2em digital;

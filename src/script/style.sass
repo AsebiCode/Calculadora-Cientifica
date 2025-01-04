@@ -191,13 +191,22 @@ html, body
     width: 90%
     border-radius: 5px
 
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button
+        -webkit-appearance: none
+        -moz-appearance: none
+        appearance: none
+        margin: 0
+        // width: 100%
+        height: 32px
+
     // alinhado a esquerda
     #visor-insercao
         height: 32px // Conforme tamanho do texto
         font: 2em digital
         border: none
         outline: 0
-
+        
     // Memória e Resultado
     .visorinferior
         display: flex
