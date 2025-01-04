@@ -188,7 +188,7 @@ html, body {
   -moz-appearance: none;
   appearance: none;
   margin: 0;
-  height: 32px;
+  line-height: 32px;
 }
 #visor #visor-insercao {
   height: 32px;
