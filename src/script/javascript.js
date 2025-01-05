@@ -255,6 +255,12 @@ function ChecarSinaisDuplos() {
 function calcular() {
     let expressao = visorInsercao().value;
 
+    if (expressao === "🐘🍓") {
+        visorResultado().innerText = "misericordia";
+        visorInsercao().value = ""; 
+        return;
+    }
+
     if (expressao) {
         try {
             expressao = tratarExpressoes(expressao);
@@ -366,3 +372,9 @@ seletorTemas.addEventListener("change", (e) => {
     document.body.classList.remove(...ListaTemas);
     document.body.classList.add(`tema-${temaSelecionado || "padrao"}`);
 });
+
+function Misericordia() {
+    if (visorResultado().innerHTML === "🐘🍓") {
+        visorResultado().innerHTML = "Misericordia";
+    }
+}
