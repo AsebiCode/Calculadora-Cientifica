@@ -255,7 +255,7 @@ function ChecarSinaisDuplos() {
 function calcular() {
     let expressao = visorInsercao().value;
 
-    if (expressao === "🐘🍓") {
+    if ((expressao === "🐘🍓")||(expressao === "🍓🐘")) {
         visorResultado().innerText = "misericordia";
         visorInsercao().value = ""; 
         return;
@@ -279,6 +279,11 @@ function calcular() {
     return RespostaGuardada;
 }
 
+visorInsercao().addEventListener("keydown", function(e) {
+    if (e.key === "Enter") {
+        calcular();
+    }
+});
 
 let Memoria = 0;
 
