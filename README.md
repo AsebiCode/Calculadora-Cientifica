@@ -1,6 +1,6 @@
 # 🧮 Calculadora Científica
 
-## https://ayanami016.github.io/Calculadora-Cientifica/
+## https://asebicode.github.io/Calculadora-Cientifica/
 
 Calculadora científica funcional e estilizada que suporta operações matemáticas básicas e avançadas, incluindo logaritmos, potências e raízes.
 
